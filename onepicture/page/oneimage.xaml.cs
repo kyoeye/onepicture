@@ -26,12 +26,23 @@ namespace onepicture.page
         public oneimage()
         {
             this.InitializeComponent();
+           
+        }
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            base.OnNavigatedTo(e);
+            RootObject myimage = await imageproxy.goimage();
+            twotext.Text = "高度" + myimage.p_ori_hight + "-" + "宽度" + myimage.p_ori_width;
+            // BitmapImage貌似是用来接收uri来转成图片的，死国一得死
+            BitmapImage bitmapImage = new BitmapImage(new Uri(myimage.p_ori));
+            thephoto.Source = bitmapImage;
         }
 
         private async void fresh_Click(object sender, RoutedEventArgs e)
         {
 
-            RootObject myimage = await proxy.goimage();
+            RootObject myimage = await imageproxy.goimage();
             twotext.Text = "高度" + myimage.p_ori_hight + "-" + "宽度" + myimage.p_ori_width;
             // BitmapImage貌似是用来接收uri来转成图片的，死国一得死
             BitmapImage bitmapImage = new BitmapImage(new Uri(myimage.p_ori));

@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace onepicture
 {
-    public class proxy
+    public class imageproxy
     {
         public async static Task<RootObject> goimage()
         {

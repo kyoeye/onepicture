@@ -8,6 +8,22 @@
     mc:Ignorable="d">
 
     <Grid >
+        <Grid.Background>
+            <ImageBrush 
+                ImageSource="{Binding ElementName=b,Path=Source,Mode=TwoWay}" 
+                Stretch="UniformToFill" 
+                x:Name="backimag2" 
+                Opacity="0.5"
+                />
+        </Grid.Background>
+        <Pivot>
+            <PivotItem Header="设置" FontSize=" 10">
+                <Grid/>
+            </PivotItem>
+            <PivotItem Header="关于" FontSize=" 10">
+                <Grid/>
+            </PivotItem>
+        </Pivot>
 
     </Grid>
 </Page>

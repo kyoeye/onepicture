@@ -8,9 +8,9 @@
     mc:Ignorable="d"
     Background="#FF2291DE"   
     >
-    
-
-    <Grid>
+   
+    <Grid >
+      
         <Grid.RowDefinitions >
             <RowDefinition Height="auto" />
             <RowDefinition Height=" *" />
@@ -19,31 +19,59 @@
         <Border  Grid.Row="0"  Height=" 50"  Background="#FF2291DE" >
             <TextBlock Text="全年龄" Margin="60,0,0,0" Foreground="#FFFFECEC" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="迷你简橄榄" FontSize="20" />
         </Border>
-
+    
 
         <!-- 按钮 -->
         <AppBarButton Click="hanbao_Click" HorizontalAlignment="Left" Width="55" Height=" 50" >
             <TextBlock Text=" &#xE970;" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" Foreground="#FFFFECEC"/>
         </AppBarButton>
         <Frame Grid.Row="1" Name="myframe"/>
-        <SplitView  Name="mynemu" Grid.Row ="1"  OpenPaneLength=" 250" DisplayMode="Overlay" PaneBackground="#FF59A2D4">
+        <ListView Grid.Row="1" >
+            <ListView.ItemTemplate >
+                <DataTemplate >
+                    <RelativePanel Padding="5,10,5,10" ManipulationMode="System,TranslateX">
+                        <TextBlock x:Name="news_title" Text="{Binding title}" TextWrapping="Wrap" TextTrimming="WordEllipsis" FontSize="17" FontWeight="Bold" RelativePanel.AlignTopWithPanel="True"></TextBlock>
+                    </RelativePanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <SplitView 
+                   Name="mynemu" 
+                   Grid.Row ="1"  
+                   OpenPaneLength=" 250" 
+                   DisplayMode="Overlay" 
+                   PaneBackground="#FF59A2D4">
             <SplitView.Pane >
                 <ListBox Name="Listboxmenu" SelectionChanged="Listboxmenu_SelectionChanged"  Background="#FF1F78B6" >
                     <ListBoxItem Name="onepicture" >
-                        <TextBlock Text="单图" Foreground="#FFEDE4EB" FontSize="20"/>
+                        <TextBlock Text="单图" 
+                                   Foreground="#FFEDE4EB" 
+                                   FontSize="20"
+                                   />
                     </ListBoxItem>
                     <ListBoxItem Name="huandeng" >
-                        <TextBlock  Text="幻灯式" Foreground="#FFEDE4EB" FontSize="20"/>
+                        <TextBlock  Text="幻灯式" 
+                                    Foreground="#FFEDE4EB"
+                                    FontSize="20"
+                                    />
                     </ListBoxItem>
                     <ListBoxItem >
-                        <TextBlock  Text="抱枕" Foreground="#FFEDE4EB" FontSize="20"/>
+                        <TextBlock  Text="抱枕" 
+                                    Foreground="#FFEDE4EB" 
+                                    FontSize="20"
+                                    />
+                    </ListBoxItem>
+                    <ListBoxItem Name="setting" >
+                        <TextBlock  Text="设置" 
+                                    Foreground="#FFEDE4EB" 
+                                    FontSize="20"
+                                    />
                     </ListBoxItem>
 
                 </ListBox>
 
             </SplitView.Pane>
         </SplitView>
-
-
     </Grid>
 </Page>
