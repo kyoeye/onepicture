@@ -1,4 +1,5 @@
-﻿using System;
+﻿using onepicture.page;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,19 @@ namespace onepicture
         public MainPage()
         {
             this.InitializeComponent();
+            myframe.Navigate(typeof(oneimage));
+
+        }
+
+        private void Listboxmenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            myframe.Navigate(typeof(oneimage));
+            mynemu.IsPaneOpen = !mynemu.IsPaneOpen;
+        }
+
+        private void hanbao_Click(object sender, RoutedEventArgs e)
+        {
+            mynemu.IsPaneOpen = !mynemu.IsPaneOpen;
         }
     }
 }
