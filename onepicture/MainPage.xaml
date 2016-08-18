@@ -26,16 +26,6 @@
             <TextBlock Text=" &#xE970;" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" Foreground="#FFFFECEC"/>
         </AppBarButton>
         <Frame Grid.Row="1" Name="myframe"/>
-        <ListView Grid.Row="1" >
-            <ListView.ItemTemplate >
-                <DataTemplate >
-                    <RelativePanel Padding="5,10,5,10" ManipulationMode="System,TranslateX">
-                        <TextBlock x:Name="news_title" Text="{Binding title}" TextWrapping="Wrap" TextTrimming="WordEllipsis" FontSize="17" FontWeight="Bold" RelativePanel.AlignTopWithPanel="True"></TextBlock>
-                    </RelativePanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-
         <SplitView 
                    Name="mynemu" 
                    Grid.Row ="1"  

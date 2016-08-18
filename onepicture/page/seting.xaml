@@ -8,17 +8,26 @@
     mc:Ignorable="d">
 
     <Grid >
-        <Grid.Background>
-            <ImageBrush 
-                ImageSource="{Binding ElementName=b,Path=Source,Mode=TwoWay}" 
-                Stretch="UniformToFill" 
-                x:Name="backimag2" 
-                Opacity="0.5"
-                />
-        </Grid.Background>
-        <Pivot>
-            <PivotItem Header="设置" FontSize=" 10">
-                <Grid/>
+        <Pivot Foreground="White">
+            <PivotItem Header="设置" FontSize=" 10" Foreground="White">
+                <Grid>
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" >
+                        <ToggleSwitch OffContent="关(づ￣3￣)づ╭❤～享受高质量图片" OnContent="开(#‵′)凸就不会连个wifi？" Foreground="White" >
+                            <ToggleSwitch.Header >
+                                <TextBlock Text="省流模式" Foreground="White" />
+                            </ToggleSwitch.Header>
+                        </ToggleSwitch>
+                        <TextBlock Margin="5,5,0,0" Text="注意！省流模式的原理是将图片返回更换成一个更低质量的返回，大屏幕pc预览效果可能不理想" Foreground="White" />
+                    </StackPanel>
+                </Grid>
             </PivotItem>
             <PivotItem Header="关于" FontSize=" 10">
                 <Grid/>

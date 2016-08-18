@@ -11,8 +11,8 @@
             <AppBarButton Label="高清"  Foreground="White" Icon="ZoomIn" />
             <AppBarButton Icon="Refresh" Label="更换" Click="fresh_Click" Foreground="White" />
             <CommandBar.SecondaryCommands  >
-                <AppBarButton Name="Blackms1"  Label="原图"   />
-                <AppBarButton  Name="homeimg"  Label="设置"   />
+                <AppBarButton Name="Blackms1" Click="gotoimage_Click" Label="原图"   />
+                <AppBarButton  Name="homeimg" Click="setting2_Click" Label="设置"   />
             </CommandBar.SecondaryCommands>
             <CommandBar.Content >
                 <TextBlock Name="twotext" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,15,0,0" />

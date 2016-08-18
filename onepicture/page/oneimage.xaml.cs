@@ -1,4 +1,5 @@
-﻿using System;
+﻿using onepicture.page;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -52,6 +53,16 @@ namespace onepicture.page
             //   imageBrush.ImageSource = bitmapImage;           
             //   backimage = imageBrush;
 
+        }
+
+        private void setting2_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(seting));
+        }
+
+        private void gotoimage_Click(object sender, RoutedEventArgs e)
+        {
+           
         }
     }
 }
