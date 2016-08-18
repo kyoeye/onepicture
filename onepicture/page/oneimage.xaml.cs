@@ -27,11 +27,11 @@ namespace onepicture.page
         public oneimage()
         {
             this.InitializeComponent();
-           
+            
         }
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
+        {           
             base.OnNavigatedTo(e);
             RootObject myimage = await imageproxy.goimage();
             twotext.Text = "高度" + myimage.p_ori_hight + "-" + "宽度" + myimage.p_ori_width;
@@ -60,9 +60,11 @@ namespace onepicture.page
             Frame.Navigate(typeof(seting));
         }
 
-        private void gotoimage_Click(object sender, RoutedEventArgs e)
+        private async void gotoimage_Click(object sender, RoutedEventArgs e)
         {
-           
+            RootObject myimage = await imageproxy.goimage();
+            
+            
         }
     }
 }

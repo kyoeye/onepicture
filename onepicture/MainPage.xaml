@@ -18,13 +18,25 @@
         </Grid.RowDefinitions>
         <Border  Grid.Row="0"  Height=" 50"  Background="#FF2291DE" >
             <TextBlock Text="全年龄" Margin="60,0,0,0" Foreground="#FFFFECEC" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="迷你简橄榄" FontSize="20" />
+        
         </Border>
-    
-
+      
+        <ComboBox Grid.Row="0"
+                  Margin="0,0,10,0"
+                  HorizontalAlignment="Right"
+                  VerticalAlignment="Center"
+                  BorderBrush="#66FFFFFF" 
+                  Foreground="Black" 
+                  >
+            <ComboBoxItem Width="150" Content="1" />
+            <ComboBoxItem Width="150" Content="2"  />
+            <ComboBoxItem Width="150" Content="3"  />
+        </ComboBox> 
         <!-- 按钮 -->
         <AppBarButton Click="hanbao_Click" HorizontalAlignment="Left" Width="55" Height=" 50" >
             <TextBlock Text=" &#xE970;" HorizontalAlignment="Center" VerticalAlignment="Center" FontFamily="Segoe MDL2 Assets" Foreground="#FFFFECEC"/>
         </AppBarButton>
+        
         <Frame Grid.Row="1" Name="myframe"/>
         <SplitView 
                    Name="mynemu" 

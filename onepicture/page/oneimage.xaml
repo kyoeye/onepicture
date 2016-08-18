@@ -11,8 +11,8 @@
             <AppBarButton Label="高清"  Foreground="White" Icon="ZoomIn" />
             <AppBarButton Icon="Refresh" Label="更换" Click="fresh_Click" Foreground="White" />
             <CommandBar.SecondaryCommands  >
-                <AppBarButton Name="Blackms1" Click="gotoimage_Click" Label="原图"   />
-                <AppBarButton  Name="homeimg" Click="setting2_Click" Label="设置"   />
+                <AppBarButton Name="Blackms1" Click="gotoimage_Click" Label="原图" Icon="Globe"  />
+                <AppBarButton  Name="homeimg" Click="setting2_Click" Label="设置" Icon="Setting"   />
             </CommandBar.SecondaryCommands>
             <CommandBar.Content >
                 <TextBlock Name="twotext" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,15,0,0" />
@@ -43,7 +43,7 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
-
+        <ProgressRing Grid.Column="1" Grid.Row="1" Width="50" Height="50" IsActive="True" Foreground="White" />
         <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
 
             <Image  Stretch="Uniform"   Name="thephoto" HorizontalAlignment="Center" VerticalAlignment="Center"   >

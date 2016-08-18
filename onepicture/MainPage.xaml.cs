@@ -1,7 +1,9 @@
-﻿using onepicture.page;
+﻿using System;
+using onepicture.page;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
+using Windows.UI.Xaml.Navigation;
 
 //“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
 
@@ -15,28 +17,15 @@ namespace onepicture
         public MainPage()
         {
             this.InitializeComponent();
-            myframe.Navigate(typeof(oneimage));
-            ManipulationCompleted += The_ManipulationCompleted;//订阅手势滑动结束后的事件
-            ManipulationDelta += The_ManipulationDelta;//订阅手势滑动事件
+           
         }
-
-        double x = 0;//用来接收手势水平滑动的长度
 
        
-          
-    
 
-        private void The_ManipulationDelta(object sender, ManipulationDeltaRoutedEventArgs e)//手势滑动中
+        protected override void OnNavigatedTo(  NavigationEventArgs e)
         {
-            x += e.Delta.Translation.X;//将滑动的值赋给x
-        }
-
-        private void The_ManipulationCompleted(object sender, ManipulationCompletedRoutedEventArgs e)//手势滑动结束
-        {
-            if (x > 200)//判断滑动的距离是否符合条件
-            {
-                mynemu.IsPaneOpen = true;//打开汉堡菜单
-            }
+            base.OnNavigatedTo(e);
+            myframe.Navigate(typeof(oneimage));
         }
 
         private void Listboxmenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
