@@ -34,17 +34,18 @@
         </Grid.Background>
 
         <Grid.ColumnDefinitions >
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="15"/>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="15"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions >
             <RowDefinition Height="50"/>
+            <RowDefinition Height="15"/>
             <RowDefinition Height="*"/>
-            <RowDefinition Height="50"/>
+            <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
-        <ProgressRing Grid.Column="1" Grid.Row="1" Width="50" Height="50" IsActive="True" Foreground="White" />
-        <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <ProgressRing Grid.Column="1" Grid.Row="2" Width="50" Height="50" IsActive="True" Foreground="White" />
+        <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
 
             <Image  Stretch="Uniform"   Name="thephoto" HorizontalAlignment="Center" VerticalAlignment="Center"   >
             </Image>
