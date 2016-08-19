@@ -66,5 +66,10 @@ namespace onepicture.page
             
             
         }
+
+        private void bigimage_Click(object sender, RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(bigpicture),thephoto.Source);
+        }
     }
 }

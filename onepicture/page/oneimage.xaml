@@ -1,4 +1,4 @@
-﻿<Page
+﻿3<Page
     x:Class="onepicture.page.oneimage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
@@ -8,7 +8,7 @@
     mc:Ignorable="d">
     <Page.BottomAppBar >
         <CommandBar Grid.Row="2" VerticalAlignment="Bottom" Background="#FF2291DE" Foreground="White">
-            <AppBarButton Label="高清"  Foreground="White" Icon="ZoomIn" />
+            <AppBarButton Label="高清" Click="bigimage_Click" Foreground="White" Icon="ZoomIn" />
             <AppBarButton Icon="Refresh" Label="更换" Click="fresh_Click" Foreground="White" />
             <CommandBar.SecondaryCommands  >
                 <AppBarButton Name="Blackms1" Click="gotoimage_Click" Label="原图" Icon="Globe"  />
