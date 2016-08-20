@@ -16,8 +16,8 @@
             <RowDefinition Height=" *" />
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
-        <Frame Grid.RowSpan="2" Name="myframe"/>
-        <Grid Grid.Row="0"  Height=" 50"  Background="#FF1386D6" Opacity="0.8" />
+        <Frame Grid.Row="1"  Name="myframe"/>
+        <Grid Grid.Row="0"  Height=" 50"  Background="#FF2291DE" />
 
 
         <TextBlock Grid.Row="0" Text="全年龄" Margin="60,0,0,0" Foreground="#FFFFECEC" HorizontalAlignment="Left" VerticalAlignment="Center" FontFamily="迷你简橄榄" FontSize="20" />

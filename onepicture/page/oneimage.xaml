@@ -8,7 +8,7 @@
     mc:Ignorable="d">
     <Page.BottomAppBar >
         <CommandBar Grid.Row="2" VerticalAlignment="Bottom" Background="#FF2291DE" Foreground="White">
-            <AppBarButton Label="高清"  Foreground="White" Icon="ZoomIn" />
+            <AppBarButton Label="高清" Click="bigpictureclick_Click" Foreground="White" Icon="ZoomIn" />
             <AppBarButton Icon="Refresh" Label="更换" Click="fresh_Click" Foreground="White" />
             <CommandBar.SecondaryCommands  >
                 <AppBarButton Name="Blackms1" Click="gotoimage_Click" Label="原图" Icon="Globe"  />
@@ -39,13 +39,13 @@
             <ColumnDefinition Width="15"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions >
-            <RowDefinition Height="50"/>
+          
             <RowDefinition Height="15"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
-        <ProgressRing Grid.Column="1" Grid.Row="2" Width="50" Height="50" IsActive="True" Foreground="White" />
-        <Border Grid.Row="2" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <ProgressRing Grid.Column="1" Grid.Row="1" Width="50" Height="50" IsActive="True" Foreground="White" />
+        <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
 
             <Image  Stretch="Uniform"   Name="thephoto" HorizontalAlignment="Center" VerticalAlignment="Center"   >
             </Image>

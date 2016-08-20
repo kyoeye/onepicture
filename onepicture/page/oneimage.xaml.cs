@@ -24,6 +24,8 @@ namespace onepicture.page
     /// </summary>
     public sealed partial class oneimage : Page
     {
+        public object bj { get; private set; }
+
         public oneimage()
         {
             this.InitializeComponent();
@@ -36,7 +38,7 @@ namespace onepicture.page
             RootObject myimage = await imageproxy.goimage();
             twotext.Text = "高度" + myimage.p_ori_hight + "-" + "宽度" + myimage.p_ori_width;
             // BitmapImage貌似是用来接收uri来转成图片的，死国一得死
-            BitmapImage bitmapImage = new BitmapImage(new Uri(myimage.p_ori));
+            BitmapImage bitmapImage = new BitmapImage(new Uri(myimage.p_mid));
             thephoto.Source = bitmapImage;
         }
 
@@ -46,12 +48,11 @@ namespace onepicture.page
             RootObject myimage = await imageproxy.goimage();
             twotext.Text = "高度" + myimage.p_ori_hight + "-" + "宽度" + myimage.p_ori_width;
             // BitmapImage貌似是用来接收uri来转成图片的，死国一得死
-            BitmapImage bitmapImage = new BitmapImage(new Uri(myimage.p_ori));
+            BitmapImage bitmapImage = new BitmapImage(new Uri(myimage.p_mid));
             thephoto.Source = bitmapImage;
-            //实现GRID的背景图加载
-            //   ImageBrush imageBrush = new ImageBrush();
-            //   imageBrush.ImageSource = bitmapImage;           
-            //   backimage = imageBrush;
+            //实现大图传递
+           Uri bj = new Uri (myimage.p_ori ) ;
+
 
         }
 
@@ -65,6 +66,12 @@ namespace onepicture.page
             RootObject myimage = await imageproxy.goimage();
             
             
+        }
+
+        private void bigpictureclick_Click(object sender, RoutedEventArgs e)
+        {
+
+            Frame.Navigate(typeof(bigpicture),bj);
         }
     }
 }
