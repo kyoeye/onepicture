@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
@@ -24,7 +25,8 @@ namespace onepicture.page
     /// </summary>
     public sealed partial class oneimage : Page
     {
-        public object bj { get; private set; }
+       
+        public object kk { get; set; }
 
         public oneimage()
         {
@@ -44,15 +46,27 @@ namespace onepicture.page
 
         private async void fresh_Click(object sender, RoutedEventArgs e)
         {
-
-            RootObject myimage = await imageproxy.goimage();
-            twotext.Text = "高度" + myimage.p_ori_hight + "-" + "宽度" + myimage.p_ori_width;
-            // BitmapImage貌似是用来接收uri来转成图片的，死国一得死
-            BitmapImage bitmapImage = new BitmapImage(new Uri(myimage.p_mid));
-            thephoto.Source = bitmapImage;
-            //实现大图传递
-           Uri bj = new Uri (myimage.p_ori ) ;
-
+             
+            if (NetworkInterface.GetIsNetworkAvailable())
+            {
+               RootObject myimage = await imageproxy.goimage();
+               twotext.Text = "高度" + myimage.p_ori_hight + "-" + "宽度" + myimage.p_ori_width;
+          
+               BitmapImage bitmapImage = new BitmapImage(new Uri(myimage.p_mid));
+               thephoto.Source = bitmapImage;
+                //实现大图传递
+                BitmapImage bb = new BitmapImage(new Uri(myimage.p_ori));
+                Uri kk = bb.UriSource;
+            }
+            else
+            {
+                var msgDialog = new Windows.UI.Popups.MessageDialog("请检查交易资格并尝试继续") { Title = "网络结合失败(/≧▽≦)/" };
+                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("取消"));
+                await msgDialog.ShowAsync();
+            }
+          
+           
+           
 
         }
 
@@ -71,7 +85,7 @@ namespace onepicture.page
         private void bigpictureclick_Click(object sender, RoutedEventArgs e)
         {
 
-            Frame.Navigate(typeof(bigpicture),bj);
+            Frame.Navigate(typeof(bigpicture),kk);
         }
     }
 }

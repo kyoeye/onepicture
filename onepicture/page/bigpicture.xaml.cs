@@ -27,16 +27,31 @@ namespace onepicture.page
         {
             this.InitializeComponent();
         }
-
-        protected override  void OnNavigatedTo(NavigationEventArgs e)
-        {           
-            var gg = (string)e.Parameter  ;
-            if (gg !=null)
+        public object kk { get; set; }
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
+        {
+            var gg = (string ) e.Parameter;
+          //   BitmapSource bl = new Uri(gg);
+            if (gg != null)
             {
-                BitmapImage imsc = new BitmapImage(new Uri(gg));
-                bigpicturename.Source = imsc;
+                BitmapImage lv = new BitmapImage(new Uri(gg));
+                bigpicturename.Source = lv;
             }
-       
+            else
+            {
+                var msgDialog = new Windows.UI.Popups.MessageDialog("gg == null") { Title = "错误" };
+                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("改改改"));
+                await msgDialog.ShowAsync();
+            }
+            /*    if (gg != null)
+               {
+                   BitmapSource bl = new Uri(gg);
+                  BitmapImage lv = new BitmapImage(new Uri(bl));
+                  Uri ll = kk;
+                   BitmapImage jj = new BitmapImage(ll);
+                   bigpicturename.Source = jj;  
+               } 
+          */
         }
     }
 }

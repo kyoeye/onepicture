@@ -4,6 +4,7 @@ using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
+using System.Net.NetworkInformation;
 
 //“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
 
@@ -20,23 +21,41 @@ namespace onepicture
            
         }
 
-       
 
-        protected override void OnNavigatedTo(  NavigationEventArgs e)
+
+        protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
-            myframe.Navigate(typeof(oneimage));
+            if (NetworkInterface.GetIsNetworkAvailable())
+            {
+                myframe.Navigate(typeof(oneimage));
+            }
+            else
+            {
+                var msgDialog = new Windows.UI.Popups.MessageDialog("请检查交易资格并尝试继续") { Title = "网络结合失败(/≧▽≦)/" };
+                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("取消"));
+                await msgDialog.ShowAsync();
+            }
         }
 
-        private void Listboxmenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void Listboxmenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (onepicture.IsSelected)
             {
-                 
-                myframe.Navigate(typeof(oneimage));
+                if (NetworkInterface.GetIsNetworkAvailable())
+                {
+                    myframe.Navigate(typeof(oneimage));
+                }
+                else
+                {
+                    var msgDialog = new Windows.UI.Popups.MessageDialog("请检查交易资格并尝试继续") { Title = "网络结合失败(/≧▽≦)/" };
+                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("取消"));
+                    await msgDialog.ShowAsync();
+                }
                 mynemu.IsPaneOpen = !mynemu.IsPaneOpen;
+
             }
-            else if (setting.IsSelected )
+            else if (setting.IsSelected)
             {
                 myframe.Navigate(typeof(seting));
                 mynemu.IsPaneOpen = !mynemu.IsPaneOpen;
