@@ -40,6 +40,7 @@ namespace onepicture
 
         private async void Listboxmenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+          
             if (onepicture.IsSelected)
             {
                 if (NetworkInterface.GetIsNetworkAvailable())

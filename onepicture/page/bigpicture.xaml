@@ -8,8 +8,8 @@
     mc:Ignorable="d">
 
     <Grid >
-        
-            <Image Name="bigpicturename"  Stretch="UniformToFill" />
-        
+
+        <Image Name="bigpicturename"  Stretch="UniformToFill" />
+        <AppBarButton  Width="50" Height="50" Background="#FF5E9DC9" VerticalAlignment="Bottom" HorizontalAlignment="Right"  Margin="0,0,50,30" Icon="Download" />
     </Grid>
 </Page>

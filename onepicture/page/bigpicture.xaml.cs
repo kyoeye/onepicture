@@ -32,6 +32,7 @@ namespace onepicture.page
         {
             var gg = (string ) e.Parameter;
           //   BitmapSource bl = new Uri(gg);
+          
             if (gg != null)
             {
                 BitmapImage lv = new BitmapImage(new Uri(gg));
