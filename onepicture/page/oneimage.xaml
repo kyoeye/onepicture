@@ -1,21 +1,38 @@
-﻿<Page
-    x:Class="onepicture.page.oneimage"
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:onepicture.page"
-    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
-    <Page.BottomAppBar >
-        <CommandBar Grid.Row="2" VerticalAlignment="Bottom" Background="#FF2291DE" Foreground="White">
-            <AppBarButton Label="高清" Click="bigpictureclick_Click" Foreground="White" Icon="ZoomIn" />
-            <AppBarButton Icon="Refresh" Label="更换" Click="fresh_Click" Foreground="White" />
-            <CommandBar.SecondaryCommands  >
-                <AppBarButton Name="Blackms1" Click="gotoimage_Click" Label="原图" Icon="Globe"  />
-                <AppBarButton  Name="homeimg" Click="setting2_Click" Label="设置" Icon="Setting"   />
+﻿<Page x:Class="onepicture.page.oneimage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="using:onepicture.page"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      mc:Ignorable="d">
+    <Page.BottomAppBar>
+        <CommandBar Grid.Row="2"
+                    VerticalAlignment="Bottom"
+                    Background="#FF2291DE"
+                    Foreground="White">
+            <AppBarButton Click="bigpictureclick_Click"
+                          Foreground="White"
+                          Icon="ZoomIn"
+                          Label="高清" />
+            <AppBarButton Click="fresh_Click"
+                          Foreground="White"
+                          Icon="Refresh"
+                          Label="更换" />
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Name="Blackms1"
+                              Click="gotoimage_Click"
+                              Icon="Globe"
+                              Label="原图" />
+                <AppBarButton Name="homeimg"
+                              Click="setting2_Click"
+                              Icon="Setting"
+                              Label="设置" />
             </CommandBar.SecondaryCommands>
-            <CommandBar.Content >
-                <TextBlock Name="twotext" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,15,0,0" />
+            <CommandBar.Content>
+                <TextBlock Name="twotext"
+                           Margin="10,15,0,0"
+                           HorizontalAlignment="Left"
+                           VerticalAlignment="Center" />
             </CommandBar.Content>
         </CommandBar>
 
@@ -25,30 +42,40 @@
 
         <Grid.Background>
 
-            <ImageBrush 
-                ImageSource="{Binding ElementName=thephoto,Path=Source,Mode=TwoWay}" 
-                Stretch="UniformToFill" 
-                x:Name="backimage" 
-                Opacity="0.5"
-                />
+            <ImageBrush x:Name="backimage"
+                        ImageSource="{Binding ElementName=thephoto,
+                                              Path=Source,
+                                              Mode=TwoWay}"
+                        Opacity="0.5"
+                        Stretch="UniformToFill" />
         </Grid.Background>
 
-        <Grid.ColumnDefinitions >
-            <ColumnDefinition Width="15"/>
-            <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="15"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="15" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="15" />
         </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions >
-          
-            <RowDefinition Height="15"/>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="15"/>
-        </Grid.RowDefinitions>
-        <ProgressRing Grid.Column="1" Grid.Row="1" Width="50" Height="50" IsActive="True" Foreground="White" />
-        <Border Grid.Row="1" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center" >
+        <Grid.RowDefinitions>
 
-            <Image  Stretch="Uniform"   Name="thephoto" HorizontalAlignment="Center" VerticalAlignment="Center"   >
-            </Image>
+            <RowDefinition Height="15" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="15" />
+        </Grid.RowDefinitions>
+        <ProgressRing Grid.Row="1"
+                      Grid.Column="1"
+                      Width="50"
+                      Height="50"
+                      Foreground="White"
+                      IsActive="True" />
+        <Border Grid.Row="1"
+                Grid.Column="1"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center">
+
+            <Image Name="thephoto"
+                   HorizontalAlignment="Center"
+                   VerticalAlignment="Center"
+                   Stretch="Uniform" />
         </Border>
 
     </Grid>
