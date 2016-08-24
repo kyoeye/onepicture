@@ -39,7 +39,7 @@ namespace onepicture.page
 
             shengliukaiguan diaoyong = new shengliukaiguan();
           
-            if (diaoyong.on == 1)
+            if (diaoyong.On == 1)
             {
                 if (NetworkInterface.GetIsNetworkAvailable())
                 {
@@ -80,7 +80,7 @@ namespace onepicture.page
         {
            shengliukaiguan diaoyong = new shengliukaiguan();
            
-            if  (diaoyong.on == 1)
+            if  (diaoyong.On == 1)
             {
                 if (NetworkInterface.GetIsNetworkAvailable())
                 {
@@ -136,7 +136,7 @@ namespace onepicture.page
         public void bigpictureclick_Click(object sender, RoutedEventArgs e)
         {
 
-            Frame.Navigate(typeof(bigpicture),kk );
+            Frame.Navigate(typeof(bigpicture));
         }
     }
 }

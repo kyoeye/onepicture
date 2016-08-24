@@ -29,15 +29,15 @@ namespace onepicture.page
                 shengliukaiguan diaoyong = new shengliukaiguan();
                 //  diaoyong.fangfa(1);
                 int a = 1;
-                diaoyong.on = a;
-                fresh_Click kk = new fresh_Click();
+                diaoyong.On = a;
+               // fresh_Click kk = new fresh_Click();
             }
             else
             {
                 shengliukaiguan diaoyong = new shengliukaiguan();
                 //   diaoyong.fangfa(2);
                 int b = 2;
-                diaoyong.on = b;
+                diaoyong.On = b;
              
             }
           

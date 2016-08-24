@@ -8,9 +8,20 @@ namespace onepicture.cs
 {
     public class  shengliukaiguan
     {
-        public int on;
+       private  int on;
 
-        
+        public int On
+        {
+            get
+            {
+                return on;
+            }
+
+            set
+            {
+                on = value;
+            }
+        }
 
         public void fangfa (int dd)
         {
