@@ -99,6 +99,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="cs\shengliukaiguan.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -107,9 +108,6 @@
     </Compile>
     <Compile Include="page\oneimage.xaml.cs">
       <DependentUpon>oneimage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="page\pubuliu.xaml.cs">
-      <DependentUpon>pubuliu.xaml</DependentUpon>
     </Compile>
     <Compile Include="page\seting.xaml.cs">
       <DependentUpon>seting.xaml</DependentUpon>
@@ -148,10 +146,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="page\oneimage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="page\pubuliu.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
