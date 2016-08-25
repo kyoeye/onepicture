@@ -136,7 +136,7 @@ namespace onepicture.page
         public void bigpictureclick_Click(object sender, RoutedEventArgs e)
         {
 
-            Frame.Navigate(typeof(bigpicture),kk );
+            Frame.Navigate(typeof(bigpicture));
         }
     }
 }

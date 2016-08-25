@@ -30,7 +30,7 @@ namespace onepicture.page
                 //  diaoyong.fangfa(1);
                 int a = 1;
                 diaoyong.on = a;
-                fresh_Click kk = new fresh_Click();
+               
             }
             else
             {
