@@ -29,8 +29,8 @@ namespace onepicture.page
                 shengliukaiguan diaoyong = new shengliukaiguan();
                 //  diaoyong.fangfa(1);
                 int a = 1;
-                diaoyong.On = a;
-               // fresh_Click kk = new fresh_Click();
+                diaoyong.on = a;
+                fresh_Click kk = new fresh_Click();
             }
             else
             {
