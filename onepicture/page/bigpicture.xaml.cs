@@ -40,9 +40,18 @@ namespace onepicture.page
             }
             else
             {
-                var msgDialog = new Windows.UI.Popups.MessageDialog("gg == null") { Title = "错误" };
-                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("改改改"));
-                await msgDialog.ShowAsync();
+                var dialog = new ContentDialog()
+                {
+                    Title = "错误",
+                    Content = "从图片页面传入的uri = null",                  
+                    PrimaryButtonText = "/(ㄒoㄒ)/~~", 
+                    FullSizeDesired = false,
+                };
+
+                dialog.PrimaryButtonClick += (_s, _e) => { };
+                await dialog.ShowAsync();
+
+              
             }
             /*    if (gg != null)
                {

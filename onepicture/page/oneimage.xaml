@@ -4,12 +4,18 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:onepicture.page"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      Background="#FF2291DE"
       mc:Ignorable="d">
     <Page.BottomAppBar>
         <CommandBar Grid.Row="2"
                     VerticalAlignment="Bottom"
                     Background="#FF2291DE"
                     Foreground="White">
+            <AppBarButton Name="beta_1"
+                          Click="bata_1_Click"
+                          Foreground="White"
+                          Icon="FullScreen"
+                          Label="放大" />
             <AppBarButton Click="bigpictureclick_Click"
                           Foreground="White"
                           Icon="ZoomIn"
@@ -75,7 +81,8 @@
             <Image Name="thephoto"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center"
-                   Stretch="Uniform" />
+                  
+                   />
         </Border>
 
     </Grid>

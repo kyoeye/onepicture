@@ -32,6 +32,8 @@ namespace onepicture.page
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Required;
         }
+        
+        
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {           
@@ -78,8 +80,10 @@ namespace onepicture.page
    
         public async void fresh_Click( object sender, RoutedEventArgs e)
         {
-           shengliukaiguan diaoyong = new shengliukaiguan();
-           
+          //  using page.seting. ;
+             shengliukaiguan diaoyong = new shengliukaiguan();
+            //   shengliukaiguan dd = await shengliukaiguan.on();
+
             if  (diaoyong.On == 1)
             {
                 if (NetworkInterface.GetIsNetworkAvailable())
@@ -110,6 +114,10 @@ namespace onepicture.page
 
                     BitmapImage bitmapImage = new BitmapImage(new Uri(myimage.p_ori));
                     thephoto.Source = bitmapImage;
+
+                    //大图传递
+                    BitmapImage bb = new BitmapImage(new Uri(myimage.p_ori));
+                    Uri kk = bb.UriSource;
                 }
                 else
                 {
@@ -120,10 +128,13 @@ namespace onepicture.page
             }
           
        }
-      
+        
+        //一个类
+      //  public 
+
         private void setting2_Click(object sender, RoutedEventArgs e)
         {
-            Frame.Navigate(typeof(seting));
+            base.Frame.Navigate(typeof(seting));
         }
 
         private async void gotoimage_Click(object sender, RoutedEventArgs e)
@@ -137,6 +148,11 @@ namespace onepicture.page
         {
 
             Frame.Navigate(typeof(bigpicture));
+        }
+
+        private  void bata_1_Click(object sender, RoutedEventArgs e)
+        {
+          
         }
     }
 }

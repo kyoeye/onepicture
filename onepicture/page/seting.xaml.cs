@@ -15,22 +15,24 @@ namespace onepicture.page
         public seting()
         {
             this.InitializeComponent();
-           NavigationCacheMode = NavigationCacheMode.Required;
+            NavigationCacheMode = NavigationCacheMode.Required;
+
         }
 
-     
+
 
         public void shengliu_kaiguan_Toggled(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             var toggle = sender as ToggleSwitch;
-          //  shengliukaiguan diaoyong = new shengliukaiguan();
+            //  shengliukaiguan diaoyong = new shengliukaiguan();
             if (toggle.IsOn)
             {
+
                 shengliukaiguan diaoyong = new shengliukaiguan();
                 //  diaoyong.fangfa(1);
                 int a = 1;
-                diaoyong.on = a;
-                fresh_Click kk = new fresh_Click();
+                diaoyong.On = a;
+                //      fresh_Click kk = new fresh_Click();
             }
             else
             {
@@ -38,9 +40,9 @@ namespace onepicture.page
                 //   diaoyong.fangfa(2);
                 int b = 2;
                 diaoyong.On = b;
-             
+
             }
-          
+
         }
     }
 }

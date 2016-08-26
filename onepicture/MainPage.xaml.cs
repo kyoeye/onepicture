@@ -28,7 +28,7 @@ namespace onepicture
             base.OnNavigatedTo(e);
             if (NetworkInterface.GetIsNetworkAvailable())
             {
-                myframe.Navigate(typeof(oneimage));
+                Frame.Navigate(typeof(oneimage));
             }
             else
             {
@@ -38,14 +38,15 @@ namespace onepicture
             }
         }
 
-        private async void Listboxmenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public async void Listboxmenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
           
             if (onepicture.IsSelected)
             {
+                onepicture.IsSelected = !onepicture.IsSelected;
                 if (NetworkInterface.GetIsNetworkAvailable())
                 {
-                    myframe.Navigate(typeof(oneimage));
+                    base.Frame.Navigate(typeof(oneimage));
                 }
                 else
                 {
@@ -58,12 +59,13 @@ namespace onepicture
             }
             else if (setting.IsSelected)
             {
-                myframe.Navigate(typeof(seting));
+                setting.IsSelected = !setting.IsSelected;
+                base.Frame.Navigate(typeof(seting));
                 mynemu.IsPaneOpen = !mynemu.IsPaneOpen;
             }
         }
-
-        private void hanbao_Click(object sender, RoutedEventArgs e)
+     
+        public void hanbao_Click(object sender, RoutedEventArgs e)
         {
             mynemu.IsPaneOpen = !mynemu.IsPaneOpen;
         }

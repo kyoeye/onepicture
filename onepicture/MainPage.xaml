@@ -27,7 +27,7 @@
                    FontSize="20"
                    Foreground="#FFFFECEC"
                    Text="全年龄" />
-        <Frame Name="myframe" Grid.Row="1" />
+        <Frame Name="Frame" Grid.Row="1" />
 
         <!--  按钮  -->
 
