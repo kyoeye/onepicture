@@ -28,7 +28,7 @@ namespace onepicture
             base.OnNavigatedTo(e);
             if (NetworkInterface.GetIsNetworkAvailable())
             {
-                Frame.Navigate(typeof(oneimage));
+                Frame.Navigate(typeof(homepage));
             }
             else
             {

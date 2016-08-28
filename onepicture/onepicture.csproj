@@ -109,6 +109,9 @@
     <Compile Include="page\bigpicture.xaml.cs">
       <DependentUpon>bigpicture.xaml</DependentUpon>
     </Compile>
+    <Compile Include="page\homepage.xaml.cs">
+      <DependentUpon>homepage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="page\oneimage.xaml.cs">
       <DependentUpon>oneimage.xaml</DependentUpon>
     </Compile>
@@ -149,6 +152,10 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="page\bigpicture.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="page\homepage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

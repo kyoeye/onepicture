@@ -132,10 +132,6 @@ namespace onepicture.page
         //一个类
       //  public 
 
-        private void setting2_Click(object sender, RoutedEventArgs e)
-        {
-            base.Frame.Navigate(typeof(seting));
-        }
 
         private async void gotoimage_Click(object sender, RoutedEventArgs e)
         {

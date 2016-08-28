@@ -29,10 +29,7 @@
                               Click="gotoimage_Click"
                               Icon="Globe"
                               Label="原图" />
-                <AppBarButton Name="homeimg"
-                              Click="setting2_Click"
-                              Icon="Setting"
-                              Label="设置" />
+              
             </CommandBar.SecondaryCommands>
             <CommandBar.Content>
                 <TextBlock Name="twotext"
