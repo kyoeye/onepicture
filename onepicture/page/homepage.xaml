@@ -6,31 +6,40 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d">
     <Page.Resources>
-        <Storyboard x:Name="storyboardRectangle" >
-            <DoubleAnimation
-            Storyboard.TargetName="homethephoto" 
-            Storyboard.TargetProperty="Opacity"               
-            From="1.0" To="0" Duration="0:0:1"
-            AutoReverse="True"
-            RepeatBehavior="1x"/>
-            <DoubleAnimation
-            Storyboard.TargetName="backimage" 
-            Storyboard.TargetProperty="Opacity"               
-            From="1.0" To="0" Duration="0:0:1"
-            AutoReverse="True"
-            RepeatBehavior="1x"/>
+        <Storyboard x:Name="storyboardRectangle">
+            <DoubleAnimation AutoReverse="True"
+                             Duration="0:0:1"
+                             From="1.0"
+                             RepeatBehavior="1x"
+                             Storyboard.TargetName="homethephoto"
+                             Storyboard.TargetProperty="Opacity"
+                             To="0" />
+            <DoubleAnimation AutoReverse="True"
+                             Duration="0:0:1"
+                             From="1.0"
+                             RepeatBehavior="1x"
+                             Storyboard.TargetName="backimage"
+                             Storyboard.TargetProperty="Opacity"
+                             To="0" />
         </Storyboard>
-        
+
     </Page.Resources>
-<!--
+    <!--
     <Grid>
-        <Rectangle x:Name="rectangle"      
+        <Rectangle x:Name="rectangle"
         Width="200" Height="130" Fill="Blue"/>
     </Grid>
     -->
-    
+
 
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
         <Grid.Background>
 
             <ImageBrush x:Name="backimage"
@@ -40,24 +49,24 @@
                         Opacity="0.5"
                         Stretch="UniformToFill" />
         </Grid.Background>
-        <Pivot>
+        <Pivot Grid.Row="1" Grid.Column="0">
             <PivotItem Header="首页">
                 <Grid>
-                    <Grid.RowDefinitions >
-                        <RowDefinition Height="*" />
-                    </Grid.RowDefinitions>
-                    <Image x:Name="homethephoto" Margin="5,5,5,20" />
-                    <ScrollViewer >
-                       
-                  </ScrollViewer>
+                    <ScrollViewer Grid.RowSpan="2"
+                                  Grid.Column="0"   
+                                  ZoomMode="Enabled"
+                                  HorizontalScrollBarVisibility="Disabled"
+                                  VerticalScrollBarVisibility="Disabled">
+                        <Image x:Name="homethephoto"
+                               Grid.Column="0"
+                               Margin="5,5,5,20" 
+                               
+                               />
+
+                    </ScrollViewer>
                 </Grid>
             </PivotItem>
             <PivotItem Header="分类" />
-
         </Pivot>
-       
-
     </Grid>
-    
- 
 </Page>

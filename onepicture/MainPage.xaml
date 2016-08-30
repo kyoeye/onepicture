@@ -10,27 +10,17 @@
     <Grid>
 
         <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
             <RowDefinition Height="auto" />
             <RowDefinition Height=" *" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
+
+        <Frame Name="Frame" Grid.RowSpan="4" />
         <Grid Grid.Row="0"
               Height=" 50"
               Background="#FF2291DE" />
-
-
-        <TextBlock Grid.Row="0"
-                   Margin="60,0,0,0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   FontFamily="迷你简橄榄"
-                   FontSize="20"
-                   Foreground="#FFFFECEC"
-                   Text="全年龄" />
-        <Frame Name="Frame" Grid.Row="1" />
-
         <!--  按钮  -->
-
         <AppBarButton Width="55"
                       Height=" 50"
                       HorizontalAlignment="Left"
@@ -41,12 +31,19 @@
                        Foreground="#FFFFECEC"
                        Text=" &#xE970;" />
         </AppBarButton>
+        <TextBlock Grid.Row="0"
+                   Margin="60,0,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   FontFamily="迷你简橄榄"
+                   FontSize="20"
+                   Foreground="#FFFFECEC"
+                   Text="全年龄" />
 
         <SplitView Name="mynemu"
-                   Grid.Row="1"
+                   Grid.RowSpan="4"
                    DisplayMode="Overlay"
-                   OpenPaneLength=" 200"
-                  >
+                   OpenPaneLength=" 200">
             <SplitView.Pane>
                 <ListBox Name="Listboxmenu"
                          Background="#FF1F78B6"
@@ -76,5 +73,8 @@
 
             </SplitView.Pane>
         </SplitView>
+     
+
+        
     </Grid>
 </Page>
