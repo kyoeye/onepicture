@@ -36,6 +36,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="*" />
+            
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -51,20 +52,21 @@
         </Grid.Background>
         <Pivot Grid.Row="1" Grid.Column="0">
             <PivotItem Header="首页">
-                <Grid>
-                    <ScrollViewer Grid.RowSpan="2"
+                <ScrollViewer >
+                       <ScrollViewer Grid.RowSpan="2"
                                   Grid.Column="0"   
                                   ZoomMode="Enabled"
+                                  VerticalSnapPointsType="None" 
+                                  HorizontalSnapPointsType="None"
                                   HorizontalScrollBarVisibility="Disabled"
                                   VerticalScrollBarVisibility="Disabled">
                         <Image x:Name="homethephoto"
                                Grid.Column="0"
-                               Margin="5,5,5,20" 
-                               
-                               />
-
+                               Margin="5,5,5,20" />
                     </ScrollViewer>
-                </Grid>
+          
+                </ScrollViewer>
+             
             </PivotItem>
             <PivotItem Header="分类" />
         </Pivot>
