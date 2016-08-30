@@ -36,7 +36,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="*" />
-            
+            <RowDefinition Height="50" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
@@ -52,7 +52,8 @@
         </Grid.Background>
         <Pivot Grid.Row="1" Grid.Column="0">
             <PivotItem Header="首页">
-                <ScrollViewer >
+                <Grid>
+                    <ScrollViewer >
                        <ScrollViewer Grid.RowSpan="2"
                                   Grid.Column="0"   
                                   ZoomMode="Enabled"
@@ -64,9 +65,9 @@
                                Grid.Column="0"
                                Margin="5,5,5,20" />
                     </ScrollViewer>
-          
-                </ScrollViewer>
-             
+                     
+                    </ScrollViewer>
+                </Grid>
             </PivotItem>
             <PivotItem Header="分类" />
         </Pivot>
