@@ -18,15 +18,23 @@ namespace onepicture.page
         public homepage()
         {
             this.InitializeComponent();
+            
         }
+
+
+
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-            base.OnNavigatedTo(e);
+          
+            // base.OnNavigatedTo(e);
+
             if (NetworkInterface.GetIsNetworkAvailable())
             {
                 RootObject myimage = await imageproxy.goimage();
+                
                 BitmapImage homepage_image = new BitmapImage(new Uri(myimage.p_ori));
-                homethephoto.Source = homepage_image;  
+                storyboardRectangle.Begin();
+                homethephoto.Source = homepage_image;
             }
 
         }

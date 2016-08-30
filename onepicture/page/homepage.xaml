@@ -5,6 +5,30 @@
       xmlns:local="using:onepicture.page"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       mc:Ignorable="d">
+    <Page.Resources>
+        <Storyboard x:Name="storyboardRectangle" >
+            <DoubleAnimation
+            Storyboard.TargetName="homethephoto" 
+            Storyboard.TargetProperty="Opacity"               
+            From="1.0" To="0" Duration="0:0:1"
+            AutoReverse="True"
+            RepeatBehavior="1x"/>
+            <DoubleAnimation
+            Storyboard.TargetName="backimage" 
+            Storyboard.TargetProperty="Opacity"               
+            From="1.0" To="0" Duration="0:0:1"
+            AutoReverse="True"
+            RepeatBehavior="1x"/>
+        </Storyboard>
+        
+    </Page.Resources>
+<!--
+    <Grid>
+        <Rectangle x:Name="rectangle"      
+        Width="200" Height="130" Fill="Blue"/>
+    </Grid>
+    -->
+    
 
     <Grid>
         <Grid.Background>
@@ -16,31 +40,24 @@
                         Opacity="0.5"
                         Stretch="UniformToFill" />
         </Grid.Background>
-        <Hub>
-            <HubSection Foreground="White" Header="首页">
-                <DataTemplate>
-                    <Grid Width="400" />
-                </DataTemplate>
-            </HubSection>
-            <HubSection Foreground="White" Header="分类">
-                <DataTemplate>
-                    <Grid />
-                </DataTemplate>
-            </HubSection>
-        </Hub>
-
-        <!--
-          <Pivot>
+        <Pivot>
             <PivotItem Header="首页">
                 <Grid>
-                    <Image Name="homethephoto" Margin="5,5,5,20" />
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="*" />
+                    </Grid.RowDefinitions>
+                    <Image x:Name="homethephoto" Margin="5,5,5,20" />
+                    <ScrollViewer >
+                       
+                  </ScrollViewer>
                 </Grid>
             </PivotItem>
             <PivotItem Header="分类" />
 
         </Pivot>
-
-        -->
+       
 
     </Grid>
+    
+ 
 </Page>

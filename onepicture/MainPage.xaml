@@ -45,8 +45,8 @@
         <SplitView Name="mynemu"
                    Grid.Row="1"
                    DisplayMode="Overlay"
-                   OpenPaneLength=" 250"
-                   PaneBackground="#FF59A2D4">
+                   OpenPaneLength=" 200"
+                  >
             <SplitView.Pane>
                 <ListBox Name="Listboxmenu"
                          Background="#FF1F78B6"

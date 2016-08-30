@@ -7,7 +7,7 @@ using Windows.Networking.Connectivity;
 
 namespace onepicture.proxy
 {
-    public static class InternetStatus
+    public static class GerConnectionGeneration
     {
         static string None = "None";
         static string Unknown = "Unknown";
@@ -26,7 +26,7 @@ namespace onepicture.proxy
             ConnectionProfile profile = NetworkInformation.GetInternetConnectionProfile();
             if (profile == null)
             {
-                InternetType = InternetStatus.None;
+                InternetType = GerConnectionGeneration.None;
             }
             else
             {
@@ -35,13 +35,13 @@ namespace onepicture.proxy
             }
             if (!isConnected)
             {
-                return InternetStatus.None;
+                return GerConnectionGeneration.None;
             }
             if (profile.IsWwanConnectionProfile)
             {
                 if (profile.WwanConnectionProfileDetails == null)
                 {
-                    InternetType = InternetStatus.Unknown;
+                    InternetType = GerConnectionGeneration.Unknown;
                 }
                 WwanDataClass connectionClass = profile.WwanConnectionProfileDetails.GetCurrentDataClass();
                 switch (connectionClass)
@@ -49,7 +49,7 @@ namespace onepicture.proxy
                     //2G
                     case WwanDataClass.Edge:
                     case WwanDataClass.Gprs:
-                        InternetType = InternetStatus.IIG;
+                        InternetType = GerConnectionGeneration.IIG;
                         break;
                     //3G
                     case WwanDataClass.Cdma1xEvdo:
@@ -62,30 +62,30 @@ namespace onepicture.proxy
                     case WwanDataClass.Umts:
                     case WwanDataClass.Hsdpa:
                     case WwanDataClass.Hsupa:
-                        InternetType = InternetStatus.IIIG;
+                        InternetType = GerConnectionGeneration.IIIG;
                         break;
                     //4G
                     case WwanDataClass.LteAdvanced:
-                        InternetType = InternetStatus.IVG;
+                        InternetType = GerConnectionGeneration.IVG;
                         break;
                     //无网
                     case WwanDataClass.None:
-                        InternetType = InternetStatus.Unknown;
+                        InternetType = GerConnectionGeneration.Unknown;
                         break;
                     case WwanDataClass.Custom:
                     default:
-                        InternetType = InternetStatus.Unknown;
+                        InternetType = GerConnectionGeneration.Unknown;
                         break;
                 }
             }
             else if (profile.IsWlanConnectionProfile)
             {
-                InternetType = InternetStatus.Wifi;
+                InternetType = GerConnectionGeneration.Wifi;
             }
             else
             {
                 ///不是Wifi也不是蜂窝数据判断为Lan
-                InternetType = InternetStatus.Lan;
+                InternetType = GerConnectionGeneration.Lan;
             }
             return InternetType;
         }
