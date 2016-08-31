@@ -31,10 +31,15 @@ namespace onepicture.page
             if (NetworkInterface.GetIsNetworkAvailable())
             {
                 RootObject myimage = await imageproxy.goimage();
-                
-                BitmapImage homepage_image = new BitmapImage(new Uri(myimage.p_ori));
+                ring.IsActive = true;
+                BitmapImage homepage_image = new BitmapImage(new Uri(myimage.p_ori));                
                 storyboardRectangle.Begin();
                 homethephoto.Source = homepage_image;
+                if (homepage_image != null)
+                {
+
+                }
+              //  ring.IsActive = false;
             }
 
         }

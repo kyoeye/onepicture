@@ -17,33 +17,24 @@
         </Grid.RowDefinitions>
 
         <Frame Name="Frame" Grid.RowSpan="4" />
-        <Grid Grid.Row="0"
-              Height=" 50"
-              Background="#FF2291DE" />
-        <!--  按钮  -->
         <AppBarButton Width="55"
                       Height=" 50"
                       HorizontalAlignment="Left"
                       Click="hanbao_Click">
-            <TextBlock HorizontalAlignment="Center"
+            <TextBlock Margin="0,3,0,0"
+                       HorizontalAlignment="Center"
                        VerticalAlignment="Center"
                        FontFamily="Segoe MDL2 Assets"
                        Foreground="#FFFFECEC"
                        Text=" &#xE970;" />
         </AppBarButton>
-        <TextBlock Grid.Row="0"
-                   Margin="60,0,0,0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   FontFamily="迷你简橄榄"
-                   FontSize="20"
-                   Foreground="#FFFFECEC"
-                   Text="全年龄" />
+        <!--  pivot  -->
 
+        <!--  pivot  -->
         <SplitView Name="mynemu"
                    Grid.RowSpan="4"
                    DisplayMode="Overlay"
-                   OpenPaneLength=" 200">
+                   OpenPaneLength=" 225">
             <SplitView.Pane>
                 <ListBox Name="Listboxmenu"
                          Background="#FF1F78B6"
@@ -73,8 +64,49 @@
 
             </SplitView.Pane>
         </SplitView>
-     
+        <Pivot SelectionChanged="Pivot_SelectionChanged">
+            <PivotItem Grid.Row="1">
+                <Grid>
+                    <TextBlock Text="1" />
+                </Grid>
+            </PivotItem>
+            <PivotItem Grid.Row="1">
+                <Grid>
+                    <TextBlock Text="2" />
+                </Grid>
+            </PivotItem>
 
-        
+        </Pivot>
+
+        <Border Grid.Row="0"
+                Height=" 50"
+                Background="#FF2291DE" />
+        <RelativePanel Grid.Row="0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       AlignRightWithPanel="True">
+            <StackPanel Margin="0,0,20,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                <Button x:Name="home_page"
+                        Background="#FF2291DE"
+                        Content="首页"
+                        Foreground="White" />
+                <Button x:Name="fenlei_page"
+                        Background="#FF2291DE"
+                        Content="分类"
+                        Foreground="White" />
+            </StackPanel>
+        </RelativePanel>
+        <TextBlock Grid.Row="0"
+                   Margin="60,0,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   FontFamily="Segoe UI"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   Foreground="#FFFFECEC"
+                   Text="全年龄" />
     </Grid>
 </Page>

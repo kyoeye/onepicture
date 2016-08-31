@@ -6,6 +6,8 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using System.Net.NetworkInformation;
 using onepicture.proxy;
+using Windows.UI.Xaml.Media;
+using Windows.UI;
 
 //“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
 
@@ -19,7 +21,7 @@ namespace onepicture
         public MainPage()
         {
             this.InitializeComponent();
-           
+          
         }
 
 
@@ -72,5 +74,21 @@ namespace onepicture
             mynemu.IsPaneOpen = !mynemu.IsPaneOpen;
         }
 
+        private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            home_page.Content = "首页";
+            home_page.FontSize = 15;
+            home_page.Foreground = new SolidColorBrush(Color.FromArgb(225, 128, 128, 128));
+            fenlei_page.Content = "分类";
+            fenlei_page.FontSize = 15;
+            fenlei_page.Foreground = new SolidColorBrush(Color.FromArgb(225, 128, 128, 128));
+
+            switch (pivot.SelectedIndex)
+            {
+                case 0:
+                    home_page.Foreground = new SolidColorBrush(Color.FromArgb(255, 0, 122, 204));
+                    break;
+            }
+        }
     }
 }
