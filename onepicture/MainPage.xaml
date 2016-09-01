@@ -6,17 +6,71 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       Background="#FF2291DE"
       mc:Ignorable="d">
+    <Page.Resources>
+        <Storyboard x:Name="storyboardRectangle">
+            <DoubleAnimation AutoReverse="True"
+                             Duration="0:0:1"
+                             From="1.0"
+                             RepeatBehavior="1x"
+                             Storyboard.TargetName="home_image_pixiv"
+                             Storyboard.TargetProperty="Opacity"
+                             To="0" />
+            <DoubleAnimation AutoReverse="True"
+                             Duration="0:0:1"
+                             From="1.0"
+                             RepeatBehavior="1x"
+                             Storyboard.TargetName="backimage"
+                             Storyboard.TargetProperty="Opacity"
+                             To="0" />
+        </Storyboard>
 
+    </Page.Resources>
     <Grid>
+        <Grid.Background>
 
+            <ImageBrush x:Name="backimage"
+                        ImageSource="{Binding ElementName=home_image_pixiv,
+                                              Path=Source,
+                                              Mode=TwoWay}"
+                        Opacity="0.5"
+                        Stretch="UniformToFill" />
+        </Grid.Background>
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="auto" />
             <RowDefinition Height=" *" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
+        <SplitView  Grid.RowSpan="4">
+            <Pivot Padding="0,0,0,0" Name="pivot" SelectionChanged="Pivot_SelectionChanged" >
+                <PivotItem >
+                    <Grid>
+                        <Image Name="home_image_pixiv" />
+                        <ScrollViewer >
+                            <StackPanel Name="border1" Visibility="Collapsed" >
+                                <Image Source ="{Binding ElementName=home_image_pixiv, Path=Source ,Mode=TwoWay}" Opacity="0" />
+                                <Border Width="400" Height="150" Background="#FFE4E4E4" />
+                                
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+                   
+                </PivotItem>
+                <PivotItem>
+                    <Grid>
+                        <TextBlock Text="2" />
+                    </Grid>
+                </PivotItem>
+            </Pivot>
+
+        </SplitView >
 
         <Frame Name="Frame" Grid.RowSpan="4" />
+        <Border Grid.Row="0"
+                Height=" 50"
+                Background="#FF2291DE" />
+
+      
         <AppBarButton Width="55"
                       Height=" 50"
                       HorizontalAlignment="Left"
@@ -28,59 +82,7 @@
                        Foreground="#FFFFECEC"
                        Text=" &#xE970;" />
         </AppBarButton>
-        <!--  pivot  -->
 
-        <!--  pivot  -->
-        <SplitView Name="mynemu"
-                   Grid.RowSpan="4"
-                   DisplayMode="Overlay"
-                   OpenPaneLength=" 225">
-            <SplitView.Pane>
-                <ListBox Name="Listboxmenu"
-                         Background="#FF1F78B6"
-                         SelectionChanged="Listboxmenu_SelectionChanged">
-                    <ListBoxItem Name="onepicture">
-                        <TextBlock FontSize="20"
-                                   Foreground="#FFEDE4EB"
-                                   Text="单图" />
-                    </ListBoxItem>
-                    <ListBoxItem Name="huandeng">
-                        <TextBlock FontSize="20"
-                                   Foreground="#FFEDE4EB"
-                                   Text="幻灯式" />
-                    </ListBoxItem>
-                    <ListBoxItem>
-                        <TextBlock FontSize="20"
-                                   Foreground="#FFEDE4EB"
-                                   Text="抱枕" />
-                    </ListBoxItem>
-                    <ListBoxItem Name="setting">
-                        <TextBlock FontSize="20"
-                                   Foreground="#FFEDE4EB"
-                                   Text="设置" />
-                    </ListBoxItem>
-
-                </ListBox>
-
-            </SplitView.Pane>
-        </SplitView>
-        <Pivot SelectionChanged="Pivot_SelectionChanged">
-            <PivotItem Grid.Row="1">
-                <Grid>
-                    <TextBlock Text="1" />
-                </Grid>
-            </PivotItem>
-            <PivotItem Grid.Row="1">
-                <Grid>
-                    <TextBlock Text="2" />
-                </Grid>
-            </PivotItem>
-
-        </Pivot>
-
-        <Border Grid.Row="0"
-                Height=" 50"
-                Background="#FF2291DE" />
         <RelativePanel Grid.Row="0"
                        HorizontalAlignment="Right"
                        VerticalAlignment="Center"
@@ -89,14 +91,22 @@
                         HorizontalAlignment="Right"
                         VerticalAlignment="Center"
                         Orientation="Horizontal">
-                <Button x:Name="home_page"
+                <Button  Padding="10,10,10,10"
                         Background="#FF2291DE"
+                        Click="home_page_Click"
+                        x:Name="home_page"
                         Content="首页"
-                        Foreground="White" />
-                <Button x:Name="fenlei_page"
+                        Foreground="White" >
+                   
+                </Button>
+                <Button  Padding="10,10,10,10"
                         Background="#FF2291DE"
-                        Content="分类"
-                        Foreground="White" />
+                        Click="fenlei_page_Click"
+                         x:Name="fenlei_page" 
+                       Content="分类"
+                        Foreground="White" HorizontalAlignment="Center" >
+                    
+                </Button>
             </StackPanel>
         </RelativePanel>
         <TextBlock Grid.Row="0"
@@ -108,5 +118,43 @@
                    FontWeight="Bold"
                    Foreground="#FFFFECEC"
                    Text="全年龄" />
+        <SplitView Name="mynemu"
+                   Grid.RowSpan="4"
+                   DisplayMode="Overlay"
+                   OpenPaneLength=" 300">
+
+            <SplitView.Pane>
+                <ListBox Name="Listboxmenu"
+                         Background="#FF1F78B6"
+                         SelectionChanged="Listboxmenu_SelectionChanged">
+                    <ListBoxItem Padding="0,0,0,0" >
+                         <Image  Source="{Binding ElementName=home_image_pixiv, Path=Source, Mode=TwoWay }" Stretch="UniformToFill"  Height="200"/>
+                    </ListBoxItem>
+                    <ListBoxItem Name="onepicture">
+                        <TextBlock FontSize="20"
+                                   Foreground="#FFEDE4EB"
+                                   Text="单图" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="huandeng">
+                        <TextBlock FontSize="20"
+                                   Foreground="#FFEDE4EB"
+                                   Text="幻灯式" />
+                    </ListBoxItem>
+                    <ListBoxItem>
+                        <TextBlock FontSize="19"
+                                   Foreground="#FFEDE4EB"
+                                   Text="抱枕" />
+                    </ListBoxItem>
+                    <ListBoxItem Name="setting">
+                        <TextBlock FontSize="19"
+                                   Foreground="#FFEDE4EB"
+                                   Text="设置" />
+                    </ListBoxItem>
+
+                </ListBox>
+
+            </SplitView.Pane>
+        </SplitView>
+
     </Grid>
 </Page>
