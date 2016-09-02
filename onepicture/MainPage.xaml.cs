@@ -27,25 +27,46 @@ namespace onepicture
         public MainPage()
         {
             this.InitializeComponent();
-          
+            NavigationCacheMode = NavigationCacheMode.Required;
         }
 
-
+    
+            public int setting3 { get; set; }
+            public void setting2(int set)
+            {
+              setting3 = set;
+                
+            }
+         
+      
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             
             base.OnNavigatedTo(e);
 
+
             if (NetworkInterface.GetIsNetworkAvailable())
             {
-                
-                RootObject1 homeimagepixiv = await homeimageclass.goimage1();
+              
+                if (setting3 == 0)
+                {
+                      UserControl kj1 = new UserControl();
+                 
+
+                 RootObject1 homeimagepixiv = await homeimageclass.goimage1();
                 BitmapImage homepixiv = new BitmapImage(new Uri(homeimagepixiv.p_ori));
+                
                 storyboardRectangle.Begin();
                 home_image_pixiv.Stretch = Stretch.Uniform ;
                 home_image_pixiv.Source = homepixiv;
 
+                }
+                else
+                {
+
+                }
+  /*             
                 if (home_image_pixiv.Source != null)
                 {
                     await Task.Delay(1500);
@@ -54,8 +75,8 @@ namespace onepicture
                 else
                 {
                    border1.Visibility = Visibility.Collapsed ;
-                }
-            }
+                }*/
+            } 
             else
             {
                 var msgDialog = new Windows.UI.Popups.MessageDialog("请检查交易资格并尝试继续") { Title = "网络结合失败(/≧▽≦)/" };
@@ -64,6 +85,10 @@ namespace onepicture
             }
 
         }
+
+        
+
+      
 
         public async void Listboxmenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {

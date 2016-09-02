@@ -35,7 +35,8 @@
                                       Foreground="White"
                                       OffContent="关(づ￣3￣)づ╭❤～享受高质量图片"
                                       OnContent="开(#‵′)凸就不会连个wifi？"
-                                      Toggled="shengliu_kaiguan_Toggled">
+                                      Toggled="shengliu_kaiguan_Toggled"
+                                      >
                             <ToggleSwitch.Header>
                                 <TextBlock Foreground="White" Text="省流模式" />
                             </ToggleSwitch.Header>

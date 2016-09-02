@@ -4,7 +4,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:onepicture"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      Background="#FF2291DE"
+      xmlns:controls="using:onepicture.kj"
+      Background="#FF2291DE"    
       mc:Ignorable="d">
     <Page.Resources>
         <Storyboard x:Name="storyboardRectangle">
@@ -46,13 +47,9 @@
                 <PivotItem >
                     <Grid>
                         <Image Name="home_image_pixiv" />
-                        <ScrollViewer >
-                            <StackPanel Name="border1" Visibility="Collapsed" >
-                                <Image Source ="{Binding ElementName=home_image_pixiv, Path=Source ,Mode=TwoWay}" Opacity="0" />
-                                <Border Width="400" Height="150" Background="#FFE4E4E4" />
-                                
-                            </StackPanel>
-                        </ScrollViewer>
+                   <!-- 
+                        <controls:mainpageControl1 Visibility="Collapsed" ></controls:mainpageControl1>
+                        -->     
                     </Grid>
                    
                 </PivotItem>
