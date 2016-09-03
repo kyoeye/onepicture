@@ -42,7 +42,7 @@ namespace onepicture.page
                 //   diaoyong.fangfa(2);
               //  int b = 2;
             //    diaoyong.On = b;
-
+            //
             }
 
         }
