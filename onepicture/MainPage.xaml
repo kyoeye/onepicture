@@ -44,10 +44,11 @@
         </Grid.RowDefinitions>
         <SplitView  Grid.RowSpan="4">
             <Pivot Padding="0,0,0,0" Name="pivot" SelectionChanged="Pivot_SelectionChanged" >
-                <PivotItem >
+                <PivotItem Margin="-12,0,-12,0" >
                     <Grid>
                         <Image Name="home_image_pixiv" />
-                   <!-- 
+
+                   <!-- <Frame Name="myFrame" Grid.RowSpan="4" />
                         <controls:mainpageControl1 Visibility="Collapsed" ></controls:mainpageControl1>
                         -->     
                     </Grid>
@@ -62,7 +63,7 @@
 
         </SplitView >
 
-        <Frame Name="Frame" Grid.RowSpan="4" />
+        
         <Border Grid.Row="0"
                 Height=" 50"
                 Background="#FF2291DE" />

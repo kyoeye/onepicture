@@ -53,9 +53,7 @@ namespace onepicture.page
           
             if (toggle.IsOn)
             {
-                MainPage setingclass = new MainPage();
-                setingclass.setting2(1);
-          
+                
             }
         }
     }

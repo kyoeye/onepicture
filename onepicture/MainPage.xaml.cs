@@ -45,7 +45,7 @@ namespace onepicture
             
             base.OnNavigatedTo(e);
 
-
+            
             if (NetworkInterface.GetIsNetworkAvailable())
             {
               
