@@ -1,11 +1,11 @@
 ﻿<Page x:Class="onepicture.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:controls="using:onepicture.kj"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:onepicture"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-      xmlns:controls="using:onepicture.kj"
-      Background="#FF2291DE"    
+      Background="#FF2291DE"
       mc:Ignorable="d">
     <Page.Resources>
         <Storyboard x:Name="storyboardRectangle">
@@ -42,17 +42,19 @@
             <RowDefinition Height=" *" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
-        <SplitView  Grid.RowSpan="4">
-            <Pivot Padding="0,0,0,0" Name="pivot" SelectionChanged="Pivot_SelectionChanged" >
-                <PivotItem Margin="-12,0,-12,0" >
+        <SplitView Grid.RowSpan="4">
+            <Pivot Name="pivot"
+                   Padding="0,0,0,0"
+                   SelectionChanged="Pivot_SelectionChanged">
+                <PivotItem Margin="-12,0,-12,0">
                     <Grid>
                         <Image Name="home_image_pixiv" />
 
-                   <!-- <Frame Name="myFrame" Grid.RowSpan="4" />
+                        <!-- <Frame Name="myFrame" Grid.RowSpan="4" />
                         <controls:mainpageControl1 Visibility="Collapsed" ></controls:mainpageControl1>
-                        -->     
+                        -->
                     </Grid>
-                   
+
                 </PivotItem>
                 <PivotItem>
                     <Grid>
@@ -61,62 +63,15 @@
                 </PivotItem>
             </Pivot>
 
-        </SplitView >
+        </SplitView>
 
-        
+
+
+
         <Border Grid.Row="0"
                 Height=" 50"
                 Background="#FF2291DE" />
-
-      
-        <AppBarButton Width="55"
-                      Height=" 50"
-                      HorizontalAlignment="Left"
-                      Click="hanbao_Click">
-            <TextBlock Margin="0,3,0,0"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       FontFamily="Segoe MDL2 Assets"
-                       Foreground="#FFFFECEC"
-                       Text=" &#xE970;" />
-        </AppBarButton>
-
-        <RelativePanel Grid.Row="0"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       AlignRightWithPanel="True">
-            <StackPanel Margin="0,0,20,0"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal">
-                <Button  Padding="10,10,10,10"
-                        Background="#FF2291DE"
-                        Click="home_page_Click"
-                        x:Name="home_page"
-                        Content="首页"
-                        Foreground="White" >
-                   
-                </Button>
-                <Button  Padding="10,10,10,10"
-                        Background="#FF2291DE"
-                        Click="fenlei_page_Click"
-                         x:Name="fenlei_page" 
-                       Content="分类"
-                        Foreground="White" HorizontalAlignment="Center" >
-                    
-                </Button>
-            </StackPanel>
-        </RelativePanel>
-        <TextBlock Grid.Row="0"
-                   Margin="60,0,0,0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   FontFamily="Segoe UI"
-                   FontSize="20"
-                   FontWeight="Bold"
-                   Foreground="#FFFFECEC"
-                   Text="全年龄" />
-        <SplitView Name="mynemu"
+         <SplitView Name="mynemu"
                    Grid.RowSpan="4"
                    DisplayMode="Overlay"
                    OpenPaneLength=" 300">
@@ -125,8 +80,12 @@
                 <ListBox Name="Listboxmenu"
                          Background="#FF1F78B6"
                          SelectionChanged="Listboxmenu_SelectionChanged">
-                    <ListBoxItem Padding="0,0,0,0" >
-                         <Image  Source="{Binding ElementName=home_image_pixiv, Path=Source, Mode=TwoWay }" Stretch="UniformToFill"  Height="200"/>
+                    <ListBoxItem Padding="0,0,0,0">
+                        <Image Height="200"
+                               Source="{Binding ElementName=home_image_pixiv,
+                                                Path=Source,
+                                                Mode=TwoWay}"
+                               Stretch="UniformToFill" />
                     </ListBoxItem>
                     <ListBoxItem Name="onepicture">
                         <TextBlock FontSize="20"
@@ -153,6 +112,51 @@
 
             </SplitView.Pane>
         </SplitView>
+       
+        <AppBarButton Width="55"
+                      Height=" 50"
+                      HorizontalAlignment="Left"
+                      Click="hanbao_Click">
+            <TextBlock Margin="0,3,0,0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontFamily="Segoe MDL2 Assets"
+                       Foreground="#FFFFECEC"
+                       Text=" &#xE970;" />
+        </AppBarButton>
+
+        <RelativePanel Grid.Row="0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       AlignRightWithPanel="True">
+            <StackPanel Margin="0,0,20,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                <Button x:Name="home_page"
+                        Background="#FF2291DE"
+                        Click="home_page_Click"
+                        Content="首页"
+                        Foreground="White"
+                        Padding="10,10,10,10" />
+                <Button x:Name="fenlei_page"
+                        HorizontalAlignment="Center"
+                        Background="#FF2291DE"
+                        Click="fenlei_page_Click"
+                        Content="分类"
+                        Foreground="White"
+                        Padding="10,10,10,10" />
+            </StackPanel>
+        </RelativePanel>
+        <TextBlock Grid.Row="0"
+                   Margin="60,0,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   FontFamily="Segoe UI"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   Foreground="#FFFFECEC"
+                   Text="全年龄" />
 
     </Grid>
 </Page>
