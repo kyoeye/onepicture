@@ -14,6 +14,13 @@ using static onepicture.homeimageclass;
 using Windows.UI.Xaml.Media.Imaging;
 using onepicture;
 using System.Threading.Tasks;
+using Windows.Storage.Pickers;
+using Windows.Graphics.Imaging;
+using System.Collections.Generic;
+using Windows.Storage;
+using System.Runtime.InteropServices.WindowsRuntime;
+using Windows.Graphics.Display;
+using Windows.UI.Xaml.Media.Animation;
 
 //“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
 
@@ -28,6 +35,7 @@ namespace onepicture
         {
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Required;
+            oneborder.Visibility = Visibility.Collapsed;
         }
 
     
@@ -37,35 +45,29 @@ namespace onepicture
               setting3 = set;
                 
             }
-         
-      
 
+       
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             
             base.OnNavigatedTo(e);
 
-            
+            home_image_pixiv.Stretch = Stretch.Uniform ; 
             if (NetworkInterface.GetIsNetworkAvailable())
-            {
-              
-                if (setting3 == 0)
-                {
-                      UserControl kj1 = new UserControl();
-                 
-
+            {                                      
                  RootObject1 homeimagepixiv = await homeimageclass.goimage1();
                 BitmapImage homepixiv = new BitmapImage(new Uri(homeimagepixiv.p_ori));
-                
-                storyboardRectangle.Begin();
-                home_image_pixiv.Stretch = Stretch.Uniform ;
+                cc_text.FontSize = 14;
+                cc_text.Text = "宽:"+ homeimagepixiv.p_ori_width + "--高："+ homeimagepixiv.p_ori_hight;         
+ 
                 home_image_pixiv.Source = homepixiv;
 
+                     if (homepixiv != null)
+                {                
+                    storyboardRectangle.Begin();
                 }
-                else
-                {
+              
 
-                }
   /*             
                 if (home_image_pixiv.Source != null)
                 {
@@ -98,6 +100,7 @@ namespace onepicture
                 onepicture.IsSelected = !onepicture.IsSelected;
                 if (NetworkInterface.GetIsNetworkAvailable())
                 {
+                    oneborder.Visibility = Visibility.Collapsed;
                     base.Frame.Navigate(typeof(oneimage));
                 }
                 else
@@ -112,7 +115,8 @@ namespace onepicture
             else if (setting.IsSelected)
             {
                 setting.IsSelected = !setting.IsSelected;
-                base.Frame.Navigate(typeof(seting));
+                oneborder.Visibility = Visibility.Collapsed;
+                base.Frame.Navigate(typeof(seting), null , new SuppressNavigationTransitionInfo());
                 mynemu.IsPaneOpen = !mynemu.IsPaneOpen;
                
             }
@@ -161,5 +165,60 @@ namespace onepicture
             pivot.SelectedIndex = 1;
             pivot.SelectedItem = pivot.Items[1];
         }
+
+        private void twoborder_Tapped(object sender, TappedRoutedEventArgs e)
+        {
+            oneborder.Visibility = Visibility.Visible;
+        }
+        //下载图片
+        private async void AppBarButton_Click(object sender, RoutedEventArgs e)
+        {
+            RootObject1 myimage = await homeimageclass.goimage1();
+            var saveFile = new FileSavePicker();
+            saveFile.SuggestedStartLocation = PickerLocationId.PicturesLibrary; //下拉列表的文件类型
+            string filename = "文件类型" ;
+            saveFile.FileTypeChoices.Add(filename, new List<string>() { ".png", ".jpg", ".jpeg", ".bmp" }); //文件命名，图片+数字自加。。。有机会换成获取api返回的id试试
+
+            string filenam = myimage.p_mid;
+            int ss = 1;
+            ss++;
+            saveFile.SuggestedFileName = ss + filenam;
+            StorageFile sFile = await saveFile.PickSaveFileAsync();
+
+            if (sFile != null)
+            {
+                // 在用户完成更改并调用CompleteUpdatesAsync之前，阻止对文件的更新，此方法参考了http://blog.csdn.net/csdn_ergo/article/details/51281093的博客
+                CachedFileManager.DeferUpdates(sFile);
+                //image控件转换图像
+                RenderTargetBitmap renderTargerBitemap = new RenderTargetBitmap();
+                //传入image控件
+                await renderTargerBitemap.RenderAsync(home_image_pixiv);
+
+                var pixelBuffer = await renderTargerBitemap.GetPixelsAsync();
+                //下面这段不明所以的说
+                using (var fileStream = await sFile.OpenAsync(FileAccessMode.ReadWrite))
+                {
+                    var encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, fileStream);
+                    encoder.SetPixelData(
+                        BitmapPixelFormat.Bgra8,
+                        BitmapAlphaMode.Ignore,
+                         (uint)renderTargerBitemap.PixelWidth,
+                         (uint)renderTargerBitemap.PixelHeight,
+                         DisplayInformation.GetForCurrentView().LogicalDpi,
+                         DisplayInformation.GetForCurrentView().LogicalDpi,
+                         pixelBuffer.ToArray()
+                        );
+                    //刷新
+                    await encoder.FlushAsync();
+                }
+
+            }
+            else
+            {
+                
+            }
+
+        }
+
     }
 }

@@ -7,8 +7,10 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       Background="#FF2291DE"
       mc:Ignorable="d">
-    <Page.Resources>
+    
+      <Page.Resources>
         <Storyboard x:Name="storyboardRectangle">
+
             <DoubleAnimation AutoReverse="True"
                              Duration="0:0:1"
                              From="1.0"
@@ -26,6 +28,9 @@
         </Storyboard>
 
     </Page.Resources>
+
+  
+
     <Grid>
         <Grid.Background>
 
@@ -47,18 +52,46 @@
                    Padding="0,0,0,0"
                    SelectionChanged="Pivot_SelectionChanged">
                 <PivotItem Margin="-12,0,-12,0">
-                    <Grid>
-                        <Image Name="home_image_pixiv" />
-
+                    <Grid Name="twoborder" Tapped="twoborder_Tapped">
+                        <Grid.Resources>
+                           
+                            <Storyboard x:Name="ExitStoryboard">
+                                <FadeInThemeAnimation Storyboard.TargetName="home_image_piciv" />
+                            </Storyboard>
+                        </Grid.Resources>
+                        
+                        <Image   Name="home_image_pixiv" />
+                        <Border x:Name="oneborder" Margin="0,0,0,30" Height="50" Width="220" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="#FF2291DE"  >
+                            <Border.RenderTransform>
+                                <CompositeTransform SkewX="-30"/>
+                            </Border.RenderTransform>
+                            <StackPanel Padding="0,0,0,0" Orientation="Horizontal"  >
+                                <AppBarButton Name="AppBarButton" Click="AppBarButton_Click"  >
+                                    <TextBlock Text="&#xE118;" FontSize="20" FontFamily="Segoe MDL2 Assets" RenderTransformOrigin="0.5,0.5" Foreground="White" UseLayoutRounding="False" d:LayoutRounding="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                       
+                                        <TextBlock.RenderTransform>
+                                            <CompositeTransform SkewX="30"/>
+                                        </TextBlock.RenderTransform>
+                                    </TextBlock>
+                                </AppBarButton>
+                                <TextBlock Margin="2,0,0,4" Name="cc_text" FontSize="23" RenderTransformOrigin="0.5,0.5" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                    <TextBlock.RenderTransform>
+                                        <CompositeTransform SkewX="30"/>
+                                    </TextBlock.RenderTransform>
+                                </TextBlock>
+                            </StackPanel>
+                        </Border>
                         <!-- <Frame Name="myFrame" Grid.RowSpan="4" />
                         <controls:mainpageControl1 Visibility="Collapsed" ></controls:mainpageControl1>
                         -->
+                        
                     </Grid>
 
                 </PivotItem>
                 <PivotItem>
                     <Grid>
-                        <TextBlock Text="2" />
+                       
+
                     </Grid>
                 </PivotItem>
             </Pivot>
@@ -71,7 +104,53 @@
         <Border Grid.Row="0"
                 Height=" 50"
                 Background="#FF2291DE" />
-         <SplitView Name="mynemu"
+        <RelativePanel Grid.Row="0"
+                       HorizontalAlignment="Right"
+                       VerticalAlignment="Center"
+                       AlignRightWithPanel="True">
+            <StackPanel Margin="0,0,20,0"
+                        HorizontalAlignment="Right"
+                        VerticalAlignment="Center"
+                        Orientation="Horizontal">
+                <Button x:Name="home_page"
+                        Background="#FF2291DE"
+                        Click="home_page_Click"
+                        Content="首页"
+                        Foreground="White"
+                        Padding="10,10,10,10" />
+                <Button x:Name="fenlei_page"
+                        HorizontalAlignment="Center"
+                        Background="#FF2291DE"
+                        Click="fenlei_page_Click"
+                        Content="分类"
+                        Foreground="White"
+                        Padding="10,10,10,10" />
+            </StackPanel>
+        </RelativePanel>
+        <TextBlock Grid.Row="0"
+                   Margin="60,0,0,0"
+                   HorizontalAlignment="Left"
+                   VerticalAlignment="Center"
+                   FontFamily="Segoe UI"
+                   FontSize="20"
+                   FontWeight="Bold"
+                   Foreground="#FFFFECEC"
+                   Text="全年龄" />
+
+
+        <AppBarButton Width="55"
+                      Height=" 50"
+                      HorizontalAlignment="Left"
+                      Click="hanbao_Click">
+            <TextBlock Margin="0,3,0,0"
+                       HorizontalAlignment="Center"
+                       VerticalAlignment="Center"
+                       FontFamily="Segoe MDL2 Assets"
+                       Foreground="#FFFFECEC"
+                       Text=" &#xE970;" />
+        </AppBarButton>
+
+        <SplitView Name="mynemu"
                    Grid.RowSpan="4"
                    DisplayMode="Overlay"
                    OpenPaneLength=" 300">
@@ -113,50 +192,5 @@
             </SplitView.Pane>
         </SplitView>
        
-        <AppBarButton Width="55"
-                      Height=" 50"
-                      HorizontalAlignment="Left"
-                      Click="hanbao_Click">
-            <TextBlock Margin="0,3,0,0"
-                       HorizontalAlignment="Center"
-                       VerticalAlignment="Center"
-                       FontFamily="Segoe MDL2 Assets"
-                       Foreground="#FFFFECEC"
-                       Text=" &#xE970;" />
-        </AppBarButton>
-
-        <RelativePanel Grid.Row="0"
-                       HorizontalAlignment="Right"
-                       VerticalAlignment="Center"
-                       AlignRightWithPanel="True">
-            <StackPanel Margin="0,0,20,0"
-                        HorizontalAlignment="Right"
-                        VerticalAlignment="Center"
-                        Orientation="Horizontal">
-                <Button x:Name="home_page"
-                        Background="#FF2291DE"
-                        Click="home_page_Click"
-                        Content="首页"
-                        Foreground="White"
-                        Padding="10,10,10,10" />
-                <Button x:Name="fenlei_page"
-                        HorizontalAlignment="Center"
-                        Background="#FF2291DE"
-                        Click="fenlei_page_Click"
-                        Content="分类"
-                        Foreground="White"
-                        Padding="10,10,10,10" />
-            </StackPanel>
-        </RelativePanel>
-        <TextBlock Grid.Row="0"
-                   Margin="60,0,0,0"
-                   HorizontalAlignment="Left"
-                   VerticalAlignment="Center"
-                   FontFamily="Segoe UI"
-                   FontSize="20"
-                   FontWeight="Bold"
-                   Foreground="#FFFFECEC"
-                   Text="全年龄" />
-
     </Grid>
 </Page>

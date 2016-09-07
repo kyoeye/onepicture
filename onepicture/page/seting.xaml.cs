@@ -1,5 +1,6 @@
 ﻿using onepicture.cs;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
 using static onepicture.MainPage;
 
@@ -17,36 +18,39 @@ namespace onepicture.page
         {
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Required;
+            var frame = new Frame();
+            frame.ContentTransitions = new TransitionCollection();
+            frame.ContentTransitions.Add(new NavigationThemeTransition());
 
         }
 
 
-/*
-        public static  void shengliukaiguan_Toggled(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            var toggle = sender as ToggleSwitch;
-            //  shengliukaiguan diaoyong = new shengliukaiguan();
-            if (toggle.IsOn)
-            {
-                MainPage setingclass = new MainPage();
-                setingclass.setting2(1);
-               // shengliukaiguan diaoyong = new shengliukaiguan();
-                //  diaoyong.fangfa(1);
-             //  int a = 1;
-              //  diaoyong.On = a;
-                //      fresh_Click kk = new fresh_Click();
-            }
-            else
-            {
-               // shengliukaiguan diaoyong = new shengliukaiguan();
-                //   diaoyong.fangfa(2);
-              //  int b = 2;
-            //    diaoyong.On = b;
-            //
-            }
+        /*
+                public static  void shengliukaiguan_Toggled(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+                {
+                    var toggle = sender as ToggleSwitch;
+                    //  shengliukaiguan diaoyong = new shengliukaiguan();
+                    if (toggle.IsOn)
+                    {
+                        MainPage setingclass = new MainPage();
+                        setingclass.setting2(1);
+                       // shengliukaiguan diaoyong = new shengliukaiguan();
+                        //  diaoyong.fangfa(1);
+                     //  int a = 1;
+                      //  diaoyong.On = a;
+                        //      fresh_Click kk = new fresh_Click();
+                    }
+                    else
+                    {
+                       // shengliukaiguan diaoyong = new shengliukaiguan();
+                        //   diaoyong.fangfa(2);
+                      //  int b = 2;
+                    //    diaoyong.On = b;
+                    //
+                    }
 
-        }
-        */
+                }
+                */
         private void shengliu_kaiguan_Toggled(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             var toggle = sender as ToggleSwitch;
