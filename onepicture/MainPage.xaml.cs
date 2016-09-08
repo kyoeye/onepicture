@@ -46,6 +46,7 @@ namespace onepicture
                 
             }
 
+        public static BitmapSource  dy { get; set; }
        
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
@@ -58,15 +59,16 @@ namespace onepicture
                  RootObject1 homeimagepixiv = await homeimageclass.goimage1();
                 BitmapImage homepixiv = new BitmapImage(new Uri(homeimagepixiv.p_ori));
                 cc_text.FontSize = 14;
-                cc_text.Text = "宽:"+ homeimagepixiv.p_ori_width + "--高："+ homeimagepixiv.p_ori_hight;         
+                cc_text.Text = "宽:"+ homeimagepixiv.p_ori_width + "--高："+ homeimagepixiv.p_ori_hight;
  
                 home_image_pixiv.Source = homepixiv;
-
+                BitmapSource soure_1 = homepixiv ;
+                dy = soure_1;
                      if (homepixiv != null)
                 {                
                     storyboardRectangle.Begin();
                 }
-              
+               return;
 
   /*             
                 if (home_image_pixiv.Source != null)
@@ -85,12 +87,11 @@ namespace onepicture
                 msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("取消"));
                 await msgDialog.ShowAsync();
             }
+           
+         }
 
-        }
+       
 
-        
-
-      
 
         public async void Listboxmenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -220,5 +221,6 @@ namespace onepicture
 
         }
 
+      
     }
 }

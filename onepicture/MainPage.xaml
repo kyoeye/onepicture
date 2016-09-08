@@ -74,23 +74,25 @@
                                         </TextBlock.RenderTransform>
                                     </TextBlock>
                                 </AppBarButton>
-                                <TextBlock Margin="2,0,0,4" Name="cc_text" FontSize="23" RenderTransformOrigin="0.5,0.5" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" >
+                                <AppBarButton Name="AppBarButton2"   Width="auto" >
+                                             <TextBlock  Margin="2,0,0,4" Name="cc_text" FontSize="23" RenderTransformOrigin="0.5,0.5" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" >
                                     <TextBlock.RenderTransform>
                                         <CompositeTransform SkewX="30"/>
                                     </TextBlock.RenderTransform>
                                 </TextBlock>
+                       
+                                </AppBarButton>
                             </StackPanel>
                         </Border>
                         <!-- <Frame Name="myFrame" Grid.RowSpan="4" />
                         <controls:mainpageControl1 Visibility="Collapsed" ></controls:mainpageControl1>
                         -->
-                        
                     </Grid>
 
                 </PivotItem>
-                <PivotItem>
-                    <Grid>
-                       
+                <PivotItem Margin="-12,0,-12,0">
+                    <Grid BorderBrush="#FF2291DE">
+                        <TextBlock Text="施工中" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
 
                     </Grid>
                 </PivotItem>
@@ -171,24 +173,18 @@
                                    Foreground="#FFEDE4EB"
                                    Text="单图" />
                     </ListBoxItem>
-                    <ListBoxItem Name="huandeng">
-                        <TextBlock FontSize="20"
+
+
+                   
+                       <ListBoxItem    RelativePanel.AlignBottomWithPanel="True" Name="setting">
+                       <TextBlock FontSize="19"
                                    Foreground="#FFEDE4EB"
-                                   Text="幻灯式" />
-                    </ListBoxItem>
-                    <ListBoxItem>
-                        <TextBlock FontSize="19"
-                                   Foreground="#FFEDE4EB"
-                                   Text="抱枕" />
-                    </ListBoxItem>
-                    <ListBoxItem Name="setting">
-                        <TextBlock FontSize="19"
-                                   Foreground="#FFEDE4EB"
-                                   Text="设置" />
-                    </ListBoxItem>
+                                   Text="关于" />
+                       </ListBoxItem>
 
                 </ListBox>
-
+               
+                
             </SplitView.Pane>
         </SplitView>
        

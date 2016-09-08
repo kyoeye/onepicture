@@ -11,6 +11,11 @@
                     VerticalAlignment="Bottom"
                     Background="#FF2291DE"
                     Foreground="White">
+            <AppBarButton Name="download"
+                          Click="download_Click"
+                          Foreground="White"
+                          Icon="Download"
+                          Label="下载" />
             <AppBarButton Name="beta_1"
                           Click="bata_1_Click"
                           Foreground="White"
@@ -41,7 +46,7 @@
 
     </Page.BottomAppBar>
 
-    <Grid>
+    <Grid >
 
         <Grid.Background>
 
@@ -52,8 +57,8 @@
                         Opacity="0.5"
                         Stretch="UniformToFill" />
         </Grid.Background>
-
-        <Grid.ColumnDefinitions>
+<!--
+      <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15" />
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="15" />
@@ -63,23 +68,23 @@
             <RowDefinition Height="15" />
             <RowDefinition Height="*" />
             <RowDefinition Height="15" />
-        </Grid.RowDefinitions>
-        <ProgressRing Grid.Row="1"
-                      Grid.Column="1"
+        </Grid.RowDefinitions>   
+        -->
+       
+        <ProgressRing 
                       Width="50"
                       Height="50"
                       Foreground="White"
                       IsActive="True" />
-        <Border Grid.Row="1"
-                Grid.Column="1"
-                HorizontalAlignment="Center"
-                VerticalAlignment="Center">
-
-            <Image Name="thephoto"
+        <ScrollViewer ZoomMode="Enabled" HorizontalScrollBarVisibility="Visible" HorizontalScrollMode="Enabled"  >
+                  <Image   
+               
+                   Name="thephoto"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center" />
-        </Border>
-
+        
+        </ScrollViewer>
+        
     </Grid>
 
 </Page>

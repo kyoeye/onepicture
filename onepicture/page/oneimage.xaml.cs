@@ -8,6 +8,10 @@ using System.Net.NetworkInformation;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Graphics.Display;
+using Windows.Graphics.Imaging;
+using Windows.Storage;
+using Windows.Storage.Pickers;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -38,7 +42,7 @@ namespace onepicture.page
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {           
             base.OnNavigatedTo(e);
-
+            thephoto.Stretch = Stretch.Uniform;
             shengliukaiguan diaoyong = new shengliukaiguan();
           
             if (diaoyong.On == 1)
@@ -48,7 +52,7 @@ namespace onepicture.page
                     RootObject myimage = await imageproxy.goimage();
                     twotext.Text = "小高度" + myimage.p_ori_hight + "-" + "宽度" + myimage.p_ori_width;
                     // BitmapImage貌似是用来接收uri来转成图片的，死国一得死
-                    BitmapImage bitmapImage = new BitmapImage(new Uri(myimage.p_mid));
+                    BitmapImage bitmapImage = new BitmapImage(new Uri(myimage.p_ori));
                     thephoto.Source = bitmapImage;
                 }
                 else 
@@ -80,7 +84,8 @@ namespace onepicture.page
    
         public async void fresh_Click( object sender, RoutedEventArgs e)
         {
-          //  using page.seting. ;
+            
+             //  using page.seting. ;
              shengliukaiguan diaoyong = new shengliukaiguan();
             //   shengliukaiguan dd = await shengliukaiguan.on();
 
@@ -148,7 +153,57 @@ namespace onepicture.page
 
         private  void bata_1_Click(object sender, RoutedEventArgs e)
         {
+           
+
+            
+            thephoto.Stretch = Stretch.UniformToFill;
+        }
+
+        private async void download_Click(object sender, RoutedEventArgs e)
+        {
+            RootObject myimage = await imageproxy.goimage();
+            var saveFile = new FileSavePicker();
+            saveFile.SuggestedStartLocation = PickerLocationId.PicturesLibrary; //下拉列表的文件类型
+            string filename = "文件类型";
+            saveFile.FileTypeChoices.Add(filename, new List<string>() { ".png", ".jpg", ".jpeg", ".bmp" }); //文件命名
+
+            string filenam = myimage.p_mid;
           
+            saveFile.SuggestedFileName = filenam;
+            StorageFile sFile = await saveFile.PickSaveFileAsync();
+
+            if (sFile != null)
+            {
+                // 在用户完成更改并调用CompleteUpdatesAsync之前，阻止对文件的更新
+                CachedFileManager.DeferUpdates(sFile);
+                //image控件转换图像
+                RenderTargetBitmap renderTargerBitemap = new RenderTargetBitmap();
+                //传入image控件
+                await renderTargerBitemap.RenderAsync(thephoto);
+
+                var pixelBuffer = await renderTargerBitemap.GetPixelsAsync();
+                //下面这段不明所以的说
+                using (var fileStream = await sFile.OpenAsync(FileAccessMode.ReadWrite))
+                {
+                    var encoder = await BitmapEncoder.CreateAsync(BitmapEncoder.PngEncoderId, fileStream);
+                    encoder.SetPixelData(
+                        BitmapPixelFormat.Bgra8,
+                        BitmapAlphaMode.Ignore,
+                         (uint)renderTargerBitemap.PixelWidth,
+                         (uint)renderTargerBitemap.PixelHeight,
+                         DisplayInformation.GetForCurrentView().LogicalDpi,
+                         DisplayInformation.GetForCurrentView().LogicalDpi,
+                         pixelBuffer.ToArray()
+                        );
+                    //刷新
+                    await encoder.FlushAsync();
+                }
+
+            }
+            else
+            {
+
+            }
         }
     }
 }

@@ -49,19 +49,27 @@
                     </StackPanel>
                 </Grid>
             </PivotItem>-->
-            <PivotItem FontSize=" 10" Header="关于">
+            <PivotItem Margin="-12,0,-12,0" FontSize=" 10" Header="关于">
                 
                 <Grid>
-
-  
+                      <Grid.ChildrenTransitions>
+                            <TransitionCollection>
+                                <EntranceThemeTransition/>
+                            </TransitionCollection>
+                        </Grid.ChildrenTransitions>
+                   
                     <ScrollViewer>
-                        
-                        <StackPanel>
+                        <Grid >
+                              <Rectangle Fill="White" />
+                             <Rectangle Height="230" Fill="#FF007BC1" VerticalAlignment="Top" />
+                              <StackPanel>
                             <StackPanel.ChildrenTransitions>
                                 <TransitionCollection>
                                     <EntranceThemeTransition/>
                                 </TransitionCollection>
                             </StackPanel.ChildrenTransitions>
+                             
+                  
                             <Image Width="130"
                                    Height="130"
                                    Source="ms-appx:///Assets/Square150x150Logo.scale.scale-200.png" />
@@ -86,7 +94,7 @@
                             <TextBlock Margin="5,20,0,0"
                                        HorizontalAlignment="Center"
                                        FontSize="23"
-                                       Text="源" />
+                                       Text="源" Foreground="#FF2B2B2B" />
                             <HyperlinkButton Margin="0,0,0,0"
                                              HorizontalAlignment="Center"
                                              Content="http://lelouchcrgallery.tk/"
@@ -95,11 +103,11 @@
                             <TextBlock Margin="5,20,0,0"
                                        HorizontalAlignment="Center"
                                        FontSize="23"
-                                       Text="鸣谢" />
+                                       Text="鸣谢" Foreground="#FF2B2B2B" />
                             <TextBlock Margin="0,5,0,0"
                                        HorizontalAlignment="Center"
                                        FontSize="12"
-                                       Foreground="#FFE2E2E2"
+                                       Foreground="#FF424242"
                                        Text="(どうもありがとうございます (*/ω＼*))" />
                             <HyperlinkButton Margin="0,10,0,0"
                                        FontSize="13"
@@ -117,18 +125,21 @@
                             <TextBlock Margin="5,40,0,0"
                                        HorizontalAlignment="Center"
                                        FontSize="23"
-                                       Text="二相箔" />
+                                       Text="二相箔" Foreground="#FF2B2B2B" />
                             <TextBlock Margin="0,5,0,0"
                                        HorizontalAlignment="Center"
-                                       Foreground="#FFE2E2E2"
+                                       Foreground="#FF424242"
                                        FontSize="12"
                                        Text="_(:з)∠)_" />
                             <TextBlock Margin="0,10,0,0"
                                        HorizontalAlignment="Center"
-                                       Foreground="White"
-                                       Text="老司机们，为啥不找找应用里的彩蛋呢( ‵▽′)ψ" />
+                                       Foreground="#FF2B2B2B"
+                                       Text="前期版本。。一些东西都没做好" />
                             
                         </StackPanel>
+                      
+                        </Grid>
+                    
 
 
                     </ScrollViewer>
