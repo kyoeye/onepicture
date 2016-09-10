@@ -103,12 +103,12 @@
                             <TextBlock Margin="5,20,0,0"
                                        HorizontalAlignment="Center"
                                        FontSize="23"
-                                       Text="鸣谢" Foreground="#FF2B2B2B" />
+                                       Text="感谢" Foreground="#FF2B2B2B" />
                             <TextBlock Margin="0,5,0,0"
                                        HorizontalAlignment="Center"
                                        FontSize="12"
                                        Foreground="#FF424242"
-                                       Text="(どうもありがとうございます (*/ω＼*))" />
+                                       Text="(排名不分先后 (*/ω＼*))" />
                             <HyperlinkButton Margin="0,10,0,0"
                                        FontSize="13"
                                        HorizontalAlignment="Center"
@@ -134,9 +134,38 @@
                             <TextBlock Margin="0,10,0,0"
                                        HorizontalAlignment="Center"
                                        Foreground="#FF2B2B2B"
-                                       Text="前期版本。。一些东西都没做好" />
-                            
-                        </StackPanel>
+                                       Text="前期版本。。一些东西都没做好" FontSize="15" />
+                                <TextBlock Margin="5,40,0,0"
+                                       HorizontalAlignment="Center"
+                                       FontSize="23"
+                                       Text="单纯不做作的开发者" Foreground="#FF2B2B2B" />
+                                <TextBlock Margin="0,5,0,0"
+                                       HorizontalAlignment="Center"
+                                       Foreground="#FF424242"
+                                       FontSize="12"
+                                       Text="☆⌒(*＾-゜)v " />
+                                <TextBlock Margin="0,10,0,0"
+                                       HorizontalAlignment="Center"
+                                       Foreground="#FF2B2B2B"
+                                             FontSize="15"
+                                       Text="画渣针眼" />
+                                <TextBlock Margin="5,40,0,0"
+                                       HorizontalAlignment="Center"
+                                       FontSize="23"
+                                       Text="联系方式" Foreground="#FF2B2B2B" />
+                                <TextBlock Margin="0,5,0,0"
+                                       HorizontalAlignment="Center"
+                                       Foreground="#FF424242"
+                                       FontSize="12"
+                                       Text="（如侵犯了您的合法权益请立即联系我下架该应用）" />
+                                <TextBlock Margin="0,10,0,0"
+                                       HorizontalAlignment="Center"
+                                       Foreground="#FF2B2B2B"
+                                       FontSize="15"
+                                       Text="QQ" />
+                                <Button  Margin="0,0,0,20" Name="qqclick" Content="1429293578" Click="qqclick_Click" HorizontalAlignment="Center"/>
+
+                            </StackPanel>
                       
                         </Grid>
                     

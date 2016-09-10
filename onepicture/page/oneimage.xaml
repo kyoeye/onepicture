@@ -29,13 +29,16 @@
                           Foreground="White"
                           Icon="Refresh"
                           Label="更换" />
-            <CommandBar.SecondaryCommands>
+            <!--
+                    <CommandBar.SecondaryCommands>
                 <AppBarButton Name="Blackms1"
                               Click="gotoimage_Click"
                               Icon="Globe"
                               Label="原图" />
 
             </CommandBar.SecondaryCommands>
+    
+            -->
             <CommandBar.Content>
                 <TextBlock Name="twotext"
                            Margin="10,15,0,0"

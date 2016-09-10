@@ -1,4 +1,5 @@
 ﻿using onepicture.cs;
+using Windows.ApplicationModel.DataTransfer;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Media.Animation;
 using Windows.UI.Xaml.Navigation;
@@ -59,6 +60,16 @@ namespace onepicture.page
             {
                 
             }
+        }
+
+        private void qqclick_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            string text = (string)qqclick.Content;
+            /*用了数据绑定的呀  先找控件  找到控件就找到内容了*/
+            DataPackage dp = new DataPackage();
+            dp.SetText(text);
+            Clipboard.SetContent(dp);
+            qqclick.Content = "已复制到剪贴板，请转至qq粘贴搜索";
         }
     }
 }
