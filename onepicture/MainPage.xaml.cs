@@ -36,6 +36,7 @@ namespace onepicture
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Required;
             oneborder.Visibility = Visibility.Collapsed;
+
         }
 
     
@@ -194,6 +195,9 @@ namespace onepicture
                 RenderTargetBitmap renderTargerBitemap = new RenderTargetBitmap();
                 //传入image控件
                 await renderTargerBitemap.RenderAsync(home_image_pixiv);
+                //调用模态框
+              //  await ModalProgressDig.ShowAsync();
+                var progressTask = ModalProgressDig.ShowAsync();
 
                 var pixelBuffer = await renderTargerBitemap.GetPixelsAsync();
                 //下面这段不明所以的说
@@ -212,7 +216,9 @@ namespace onepicture
                     //刷新
                     await encoder.FlushAsync();
                 }
-
+                await Task.Delay(5000);
+                progressTask.Cancel();
+                ModalProgressDig.Hide();
             }
             else
             {

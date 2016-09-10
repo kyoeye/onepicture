@@ -79,7 +79,10 @@
                       Height="50"
                       Foreground="White"
                       IsActive="True" />
-        <ScrollViewer ZoomMode="Enabled" HorizontalScrollBarVisibility="Visible" HorizontalScrollMode="Enabled"  >
+        <ScrollViewer ZoomMode="Enabled" HorizontalScrollBarVisibility="Visible" 
+                      HorizontalScrollMode="Enabled"
+                      Visibility="Visible" 
+                      >
                   <Image   
                
                    Name="thephoto"
