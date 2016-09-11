@@ -172,6 +172,14 @@ namespace onepicture
         {
             oneborder.Visibility = Visibility.Visible;
         }
+
+        public void random()
+        {
+            Random ran = new Random();
+   //         intRandKey = ran.Next(1,10);
+        }
+
+     
         //下载图片
         private async void AppBarButton_Click(object sender, RoutedEventArgs e)
         {

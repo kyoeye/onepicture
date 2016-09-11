@@ -187,7 +187,7 @@
                 
             </SplitView.Pane>
         </SplitView>
-        
+
         <ContentDialog Grid.RowSpan="4" x:Name="ModalProgressDig" VerticalAlignment="Center">
             <ContentControl.Content>
                 <StackPanel Margin="0,10,0,10">
@@ -196,6 +196,6 @@
                 </StackPanel>
             </ContentControl.Content>
         </ContentDialog>
-        
+
     </Grid>
 </Page>
