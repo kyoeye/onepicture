@@ -63,12 +63,7 @@
                               <Rectangle Fill="White" />
                              <Rectangle Height="230" Fill="#FF007BC1" VerticalAlignment="Top" />
                               <StackPanel>
-                            <StackPanel.ChildrenTransitions>
-                                <TransitionCollection>
-                                    <EntranceThemeTransition/>
-                                </TransitionCollection>
-                            </StackPanel.ChildrenTransitions>
-                             
+                           
                   
                             <Image Width="130"
                                    Height="130"

@@ -21,6 +21,7 @@ using Windows.Storage;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Graphics.Display;
 using Windows.UI.Xaml.Media.Animation;
+using onepicture.cs;
 
 //“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
 
@@ -190,9 +191,8 @@ namespace onepicture
             saveFile.FileTypeChoices.Add(filename, new List<string>() { ".png", ".jpg", ".jpeg", ".bmp" }); //文件命名，图片+数字自加。。。有机会换成获取api返回的id试试
 
             string filenam = myimage.p_mid;
-            int ss = 1;
-            ss++;
-            saveFile.SuggestedFileName = ss + filenam;
+           
+            saveFile.SuggestedFileName = filenam;
             StorageFile sFile = await saveFile.PickSaveFileAsync();
 
             if (sFile != null)
@@ -203,9 +203,14 @@ namespace onepicture
                 RenderTargetBitmap renderTargerBitemap = new RenderTargetBitmap();
                 //传入image控件
                 await renderTargerBitemap.RenderAsync(home_image_pixiv);
+
                 //调用模态框
               //  await ModalProgressDig.ShowAsync();
                 var progressTask = ModalProgressDig.ShowAsync();
+                randomclass dd = new randomclass();
+                dd.randome();
+                dd.stringzifu();
+                contenttext.Text = dd.zif;
 
                 var pixelBuffer = await renderTargerBitemap.GetPixelsAsync();
                 //下面这段不明所以的说
@@ -225,6 +230,7 @@ namespace onepicture
                     await encoder.FlushAsync();
                 }
                 await Task.Delay(5000);
+               
                 progressTask.Cancel();
                 ModalProgressDig.Hide();
             }

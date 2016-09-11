@@ -101,6 +101,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="cs\randomclass.cs" />
     <Compile Include="cs\shengliukaiguan.cs" />
     <Compile Include="kj\append.xaml.cs">
       <DependentUpon>append.xaml</DependentUpon>
