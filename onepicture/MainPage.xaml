@@ -92,7 +92,7 @@
                 </PivotItem>
                 <PivotItem Margin="-12,0,-12,0">
                     <Grid BorderBrush="#FF2291DE">
-                        <TextBlock Text="施工中" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
+                        <TextBlock Text="是的，你没看错，还在施工啊(╯‵□′)╯︵┻━┻" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
 
                     </Grid>
                 </PivotItem>
@@ -136,7 +136,7 @@
                    FontFamily="Segoe UI"
                    FontSize="20"
                    FontWeight="Bold"
-                   Foreground="#FFFFECEC"
+                   Foreground="White" 
                    Text="全年龄" />
 
 

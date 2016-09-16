@@ -234,7 +234,7 @@ namespace onepicture
                     //刷新
                     await encoder.FlushAsync();
                 }
-                await Task.Delay(5000);
+                await Task.Delay(4500);
                
                 progressTask.Cancel();
                 ModalProgressDig.Hide();

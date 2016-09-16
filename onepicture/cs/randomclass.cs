@@ -25,7 +25,7 @@ namespace onepicture.cs
             else if (int1 == 2)
                 zif = "滑稽树前做游戏，滑稽树后做交易~";
             else if (int1 == 3)
-                zif = "交易还在继续，确定一发？";
+                zif = "交易还在继续，确定不来一发？";
             else if (int1 == 3)
                 zif = "girigirieye~~girigirimind~~~";
             else if (int1 == 4)
@@ -33,7 +33,7 @@ namespace onepicture.cs
             else if (int1 == 5)
                 zif = "骚年，你渴望力量吗？";
             else if (int1 == 6)
-                zif = "我会跟你说看到这句话时图片早就下载完了？";
+                zif = "骚年，签订契约成为马猴烧酒吧！";
             else if (int1 == 7)
                 zif = "萌豚娘是吃货……";
             else if (int1 == 8)
