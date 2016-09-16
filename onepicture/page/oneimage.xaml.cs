@@ -6,6 +6,7 @@ using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Threading.Tasks;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
 using Windows.Graphics.Display;
@@ -67,7 +68,7 @@ namespace onepicture.page
                 if (NetworkInterface.GetIsNetworkAvailable())
                 {
                     RootObject myimage = await imageproxy.goimage();
-                    twotext.Text = "大高度" + myimage.p_ori_hight + "-" + "宽度" + myimage.p_ori_width;
+                    twotext.Text = "高度" + myimage.p_ori_hight + "-" + "宽度" + myimage.p_ori_width;
                     // BitmapImage貌似是用来接收uri来转成图片的，死国一得死
                     BitmapImage bitmapImage = new BitmapImage(new Uri(myimage.p_ori));
                     thephoto.Source = bitmapImage;
@@ -115,7 +116,7 @@ namespace onepicture.page
                 if (NetworkInterface.GetIsNetworkAvailable())
                 {
                     RootObject myimage = await imageproxy.goimage();
-                    twotext.Text = "大高度" + myimage.p_ori_hight + "-" + "宽度" + myimage.p_ori_width;
+                    twotext.Text = "高度" + myimage.p_ori_hight + "-" + "宽度" + myimage.p_ori_width;
 
                     BitmapImage bitmapImage = new BitmapImage(new Uri(myimage.p_ori));
                     thephoto.Source = bitmapImage;
@@ -180,7 +181,11 @@ namespace onepicture.page
                 RenderTargetBitmap renderTargerBitemap = new RenderTargetBitmap();
                 //传入image控件
                 await renderTargerBitemap.RenderAsync(thephoto);
-
+                var progressTask = ModalProgressDig.ShowAsync();
+                randomclass dd = new randomclass();
+                dd.randome();
+                dd.stringzifu();
+                contenttext2.Text = dd.zif;
                 var pixelBuffer = await renderTargerBitemap.GetPixelsAsync();
                 //下面这段不明所以的说
                 using (var fileStream = await sFile.OpenAsync(FileAccessMode.ReadWrite))
@@ -198,7 +203,10 @@ namespace onepicture.page
                     //刷新
                     await encoder.FlushAsync();
                 }
+                await Task.Delay(5000);
 
+                progressTask.Cancel();
+                ModalProgressDig.Hide();
             }
             else
             {

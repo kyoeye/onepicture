@@ -53,13 +53,17 @@ namespace onepicture
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             
+
             base.OnNavigatedTo(e);
 
             home_image_pixiv.Stretch = Stretch.Uniform ; 
             if (NetworkInterface.GetIsNetworkAvailable())
             {                                      
-                 RootObject1 homeimagepixiv = await homeimageclass.goimage1();
-                BitmapImage homepixiv = new BitmapImage(new Uri(homeimagepixiv.p_ori));
+                 RootObject1 homeimagepixiv = await goimage1();
+                if (homeimagepixiv != null )
+                {
+
+                  BitmapImage homepixiv = new BitmapImage(new Uri(homeimagepixiv.p_ori));
                 cc_text.FontSize = 14;
                 cc_text.Text = "宽:"+ homeimagepixiv.p_ori_width + "--高："+ homeimagepixiv.p_ori_hight;
  
@@ -71,6 +75,7 @@ namespace onepicture
                     storyboardRectangle.Begin();
                 }
                return;
+              }
 
   /*             
                 if (home_image_pixiv.Source != null)

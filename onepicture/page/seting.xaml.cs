@@ -15,6 +15,7 @@ namespace onepicture.page
     /// </summary>
     public sealed partial class seting : Page
     {
+
         public seting()
         {
             this.InitializeComponent();
@@ -71,5 +72,7 @@ namespace onepicture.page
             Clipboard.SetContent(dp);
             qqclick.Content = "已复制到剪贴板，请转至qq粘贴搜索";
         }
+
+       
     }
 }

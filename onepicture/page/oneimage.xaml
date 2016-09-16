@@ -40,10 +40,12 @@
     
             -->
             <CommandBar.Content>
-                <TextBlock Name="twotext"
+                <Viewbox StretchDirection="DownOnly" VerticalAlignment="Center" >
+                    <TextBlock Name="twotext"
                            Margin="10,15,0,0"
                            HorizontalAlignment="Left"
                            VerticalAlignment="Center" />
+                </Viewbox>
             </CommandBar.Content>
         </CommandBar>
 
@@ -95,7 +97,7 @@
             <ContentControl.Content>
                 <StackPanel Margin="0,10,0,10">
                     <ProgressBar IsIndeterminate="True" />
-                    <TextBlock Text="滑稽树后做交易ing" TextAlignment="Center" Margin="0,10,0,0" />
+                    <TextBlock Name="contenttext2" TextAlignment="Center" Margin="0,10,0,0" />
                 </StackPanel>
             </ContentControl.Content>
         </ContentDialog>
