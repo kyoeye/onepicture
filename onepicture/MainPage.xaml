@@ -6,9 +6,10 @@
       xmlns:local="using:onepicture"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       Background="#FF2291DE"
+      RequestedTheme="Dark" 
       mc:Ignorable="d">
-    
-      <Page.Resources>
+
+    <Page.Resources>
         <Storyboard x:Name="storyboardRectangle">
 
             <DoubleAnimation AutoReverse="True"
@@ -26,10 +27,155 @@
                              Storyboard.TargetProperty="Opacity"
                              To="0" />
         </Storyboard>
-
+        <Style x:Key="ListBoxStyle1" TargetType="ListBox">
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"/>
+            <Setter Property="BorderBrush" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
+            <Setter Property="BorderThickness" Value="{ThemeResource ListBoxBorderThemeThickness}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled"/>
+            <Setter Property="ScrollViewer.IsHorizontalRailEnabled" Value="True"/>
+            <Setter Property="ScrollViewer.VerticalScrollMode" Value="Enabled"/>
+            <Setter Property="ScrollViewer.IsVerticalRailEnabled" Value="True"/>
+            <Setter Property="ScrollViewer.ZoomMode" Value="Disabled"/>
+            <Setter Property="ScrollViewer.IsDeferredScrollingEnabled" Value="False"/>
+            <Setter Property="ScrollViewer.BringIntoViewOnFocusChange" Value="True"/>
+            <Setter Property="IsTabStop" Value="False"/>
+            <Setter Property="TabNavigation" Value="Once"/>
+            <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+            <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
+            <Setter Property="ItemsPanel">
+                <Setter.Value>
+                    <ItemsPanelTemplate>
+                        <VirtualizingStackPanel/>
+                    </ItemsPanelTemplate>
+                </Setter.Value>
+            </Setter>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListBox">
+                        <Border x:Name="LayoutRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                            <ScrollViewer x:Name="ScrollViewer" AutomationProperties.AccessibilityView="Raw" BringIntoViewOnFocusChange="{TemplateBinding ScrollViewer.BringIntoViewOnFocusChange}" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}" IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}" IsDeferredScrollingEnabled="{TemplateBinding ScrollViewer.IsDeferredScrollingEnabled}" Padding="{TemplateBinding Padding}" TabNavigation="{TemplateBinding TabNavigation}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}">
+                                <ItemsPresenter/>
+                            </ScrollViewer>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <Style TargetType="ContentDialog" x:Key="SitAndRelaxDialogStyle">
+            <Setter Property="Foreground" Value="{ThemeResource SystemControlPageTextBaseHighBrush}" />
+            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}" />
+            <Setter Property="HorizontalAlignment" Value="Center" />
+            <Setter Property="VerticalAlignment" Value="Top" />
+            <Setter Property="IsTabStop" Value="False" />
+            <Setter Property="MaxWidth" Value="{ThemeResource ContentDialogMaxWidth}" />
+            <Setter Property="MinWidth" Value="{ThemeResource ContentDialogMinWidth}" />
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ContentDialog">
+                        <Border x:Name="Container">
+                            <Grid x:Name="LayoutRoot">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Border x:Name="BackgroundElement"
+                    Background="{TemplateBinding Background}"
+                    FlowDirection="{TemplateBinding FlowDirection}"
+                    BorderThickness="2"
+                    BorderBrush="{ThemeResource SystemControlForegroundAccentBrush}"
+                    MaxWidth="{TemplateBinding MaxWidth}"
+                    MinWidth="{TemplateBinding MinWidth}"
+                    >
+                                    <Grid x:Name="DialogSpace" VerticalAlignment="Stretch">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="Auto" />
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="Auto" />
+                                        </Grid.RowDefinitions>
+                                        <ScrollViewer x:Name="ContentScrollViewer"
+                        HorizontalScrollBarVisibility="Disabled"
+                        VerticalScrollBarVisibility="Disabled"
+                        ZoomMode="Disabled"
+                        Margin="{ThemeResource ContentDialogContentScrollViewerMargin}"
+                        IsTabStop="False">
+                                            <Grid>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="Auto" />
+                                                    <RowDefinition Height="Auto" />
+                                                </Grid.RowDefinitions>
+                                                <ContentControl x:Name="Title"
+                        Margin="{ThemeResource ContentDialogTitleMargin}"
+                        Content="{TemplateBinding Title}"
+                        ContentTemplate="{TemplateBinding TitleTemplate}"
+                        FontSize="20"
+                        FontFamily="XamlAutoFontFamily"
+                        FontWeight="Normal"
+                        Foreground="{TemplateBinding Foreground}"
+                        HorizontalAlignment="Left"
+                        VerticalAlignment="Top"
+                        IsTabStop="False"
+                        MaxHeight="{ThemeResource ContentDialogTitleMaxHeight}" >
+                                                    <ContentControl.Template>
+                                                        <ControlTemplate TargetType="ContentControl">
+                                                            <ContentPresenter
+                              Content="{TemplateBinding Content}"
+                              MaxLines="2"
+                              TextWrapping="Wrap"
+                              ContentTemplate="{TemplateBinding ContentTemplate}"
+                              Margin="{TemplateBinding Padding}"
+                              ContentTransitions="{TemplateBinding ContentTransitions}"
+                              HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"
+                              VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                                                        </ControlTemplate>
+                                                    </ContentControl.Template>
+                                                </ContentControl>
+                                                <ContentPresenter x:Name="Content"
+                        ContentTemplate="{TemplateBinding ContentTemplate}"
+                        Content="{TemplateBinding Content}"
+                        FontSize="{ThemeResource ControlContentThemeFontSize}"
+                        FontFamily="{ThemeResource ContentControlThemeFontFamily}"
+                        Margin="{ThemeResource ContentDialogContentMargin}"
+                        Foreground="{TemplateBinding Foreground}"
+                        Grid.Row="1"
+                        TextWrapping="Wrap" />
+                                            </Grid>
+                                        </ScrollViewer>
+                                        <Grid x:Name="CommandSpace" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Bottom">
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition/>
+                                                <ColumnDefinition/>
+                                            </Grid.ColumnDefinitions>
+                                            <Border x:Name="Button1Host"
+                      Margin="{ThemeResource ContentDialogButton1HostMargin}"
+                      MinWidth="{ThemeResource ContentDialogButtonMinWidth}"
+                      MaxWidth="{ThemeResource ContentDialogButtonMaxWidth}"
+                      Height="{ThemeResource ContentDialogButtonHeight}"
+                      HorizontalAlignment="Stretch" />
+                                            <Border x:Name="Button2Host"
+                      Margin="{ThemeResource ContentDialogButton2HostMargin}"
+                      MinWidth="{ThemeResource ContentDialogButtonMinWidth}"
+                      MaxWidth="{ThemeResource ContentDialogButtonMaxWidth}"
+                      Height="{ThemeResource ContentDialogButtonHeight}"
+                      Grid.Column="1"
+                      HorizontalAlignment="Stretch" />
+                                        </Grid>
+                                    </Grid>
+                                </Border>
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+       
     </Page.Resources>
 
-  
+
 
     <Grid>
         <Grid.Background>
@@ -54,34 +200,32 @@
                 <PivotItem Margin="-12,0,-12,0">
                     <Grid Name="twoborder" Tapped="twoborder_Tapped">
                         <Grid.Resources>
-                           
+
                             <Storyboard x:Name="ExitStoryboard">
                                 <FadeInThemeAnimation Storyboard.TargetName="home_image_piciv" />
                             </Storyboard>
                         </Grid.Resources>
-                        
+
                         <Image   Name="home_image_pixiv" />
-                        <Border x:Name="oneborder" Margin="0,0,0,30" Height="50" Width="220" RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" HorizontalAlignment="Right" Background="#FF2291DE"  >
-                            <Border.RenderTransform>
-                                <CompositeTransform SkewX="-30"/>
-                            </Border.RenderTransform>
+                        
+                        <Border x:Name="oneborder" Margin="0,0,0,20"    RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF2291DE"  >
+                           
                             <StackPanel Padding="0,0,0,0" Orientation="Horizontal"  >
-                                <AppBarButton Name="AppBarButton" Click="AppBarButton_Click"  >
-                                    <TextBlock Text="&#xE118;" FontSize="20" FontFamily="Segoe MDL2 Assets" RenderTransformOrigin="0.5,0.5" Foreground="White" UseLayoutRounding="False" d:LayoutRounding="Auto" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                                       
-                                        <TextBlock.RenderTransform>
-                                            <CompositeTransform SkewX="30"/>
-                                        </TextBlock.RenderTransform>
-                                    </TextBlock>
-                                </AppBarButton>
-                                <AppBarButton Name="AppBarButton2"   Width="auto" >
-                                             <TextBlock  Margin="2,0,0,4" Name="cc_text" FontSize="23" RenderTransformOrigin="0.5,0.5" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" >
-                                    <TextBlock.RenderTransform>
-                                        <CompositeTransform SkewX="30"/>
-                                    </TextBlock.RenderTransform>
-                                </TextBlock>
-                       
-                                </AppBarButton>
+                               
+                                    <CommandBar ClosedDisplayMode="Compact" Background="#FF2291DE"  >
+                                        
+                                      <AppBarButton Name="AppBarButton" Click="AppBarButton_Click" Label="下载" Padding="0,0,0,0" >
+                                      <TextBlock FontSize="20" Text="&#xE118;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                    </AppBarButton>
+                                    <CommandBar.Content >
+                                               
+                                              <TextBlock Margin="5,15,5,5" Text="没网╮(╯▽╰)╭"   Name="cc_text" FontSize="23"  Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" />
+                                             
+                                    </CommandBar.Content>
+                                  </CommandBar>
+                                
+                            
+                                
                             </StackPanel>
                         </Border>
                         <!-- <Frame Name="myFrame" Grid.RowSpan="4" />
@@ -104,8 +248,9 @@
 
 
         <Border Grid.Row="0"
-                Height=" 50"
-                Background="#FF2291DE" />
+                Height=" 50" Background="#FF2291DE" Opacity="0.5">
+
+        </Border>
         <RelativePanel Grid.Row="0"
                        HorizontalAlignment="Right"
                        VerticalAlignment="Center"
@@ -115,14 +260,14 @@
                         VerticalAlignment="Center"
                         Orientation="Horizontal">
                 <Button x:Name="home_page"
-                        Background="#FF2291DE"
+                        Background="{x:Null}"
                         Click="home_page_Click"
                         Content="首页"
                         Foreground="White"
                         Padding="10,10,10,10" />
                 <Button x:Name="fenlei_page"
                         HorizontalAlignment="Center"
-                        Background="#FF2291DE"
+                        Background="{x:Null}"
                         Click="fenlei_page_Click"
                         Content="分类"
                         Foreground="White"
@@ -155,12 +300,12 @@
         <SplitView Name="mynemu"
                    Grid.RowSpan="4"
                    DisplayMode="Overlay"
-                   OpenPaneLength=" 300">
+                   OpenPaneLength=" 300" d:IsHidden="True">
 
             <SplitView.Pane>
                 <ListBox Name="Listboxmenu"
                          Background="#FF1F78B6"
-                         SelectionChanged="Listboxmenu_SelectionChanged">
+                         SelectionChanged="Listboxmenu_SelectionChanged" Style="{StaticResource ListBoxStyle1}">
                     <ListBoxItem Padding="0,0,0,0">
                         <Image Height="200"
                                Source="{Binding ElementName=home_image_pixiv,
@@ -175,28 +320,33 @@
                     </ListBoxItem>
 
 
-                   
-                       <ListBoxItem    RelativePanel.AlignBottomWithPanel="True" Name="setting">
-                       <TextBlock FontSize="19"
+
+                    <ListBoxItem    RelativePanel.AlignBottomWithPanel="True" Name="setting">
+                        <TextBlock FontSize="19"
                                    Foreground="#FFEDE4EB"
                                    Text="关于" />
-                       </ListBoxItem>
+                    </ListBoxItem>
 
                 </ListBox>
-               
-                
+
+
             </SplitView.Pane>
         </SplitView>
+        <ContentDialog Grid.RowSpan="4" x:Name="ModalProgressDig" Style="{StaticResource SitAndRelaxDialogStyle}" d:IsHidden="True">
+            <ContentControl.Content>
+                <StackPanel Margin="0,10,0,10">
+                    <ProgressBar IsIndeterminate="True" />
+                    <TextBlock Name="contenttext" TextAlignment="Center" Margin="0,10,0,0" />
+                    <Image Name="dialogimage" Margin="-20,5,-20,0" />
+                </StackPanel>
+            </ContentControl.Content>
+        </ContentDialog>
+        <!-- 
+           <ContentDialog Height="auto"  Grid.RowSpan="4" x:Name="ModalProgressDig" VerticalAlignment="Center">
 
-        <ContentDialog   Grid.RowSpan="4" x:Name="ModalProgressDig" VerticalAlignment="Center">
-        
-        <ContentControl.Content>
-            <StackPanel Margin="0,10,0,10">
-                <ProgressBar IsIndeterminate="True" />
-                <TextBlock Name="contenttext" TextAlignment="Center" Margin="0,10,0,0" />
-            </StackPanel>
-        </ContentControl.Content>
-</ContentDialog>
+          
+     
+        -->
 
     </Grid>
 </Page>

@@ -66,7 +66,7 @@ namespace onepicture
                   BitmapImage homepixiv = new BitmapImage(new Uri(homeimagepixiv.p_ori));
                 cc_text.FontSize = 14;
                 cc_text.Text = "宽:"+ homeimagepixiv.p_ori_width + "--高："+ homeimagepixiv.p_ori_hight;
- 
+                
                 home_image_pixiv.Source = homepixiv;
                 BitmapSource soure_1 = homepixiv ;
                 dy = soure_1;
@@ -215,8 +215,8 @@ namespace onepicture
                 randomclass dd = new randomclass();
                 dd.randome();
                 dd.stringzifu();
-                contenttext.Text = dd.zif;
-
+                contenttext.Text = dd.zif;         
+               // dialogimage.Source = ne (dd.imageuri);
                 var pixelBuffer = await renderTargerBitemap.GetPixelsAsync();
                 //下面这段不明所以的说
                 using (var fileStream = await sFile.OpenAsync(FileAccessMode.ReadWrite))
