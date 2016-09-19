@@ -60,6 +60,14 @@ namespace onepicture
             if (NetworkInterface.GetIsNetworkAvailable())
             {                                      
                  RootObject1 homeimagepixiv = await goimage1();
+               if (home_image_pixiv ==null)
+                {
+                    Progressrun.IsActive = true;
+                }
+               else 
+                {
+                    Progressrun.IsActive = false;
+                }
                 if (homeimagepixiv != null )
                 {
 
@@ -68,7 +76,8 @@ namespace onepicture
                 cc_text.Text = "宽:"+ homeimagepixiv.p_ori_width + "--高："+ homeimagepixiv.p_ori_hight;
                 
                 home_image_pixiv.Source = homepixiv;
-                BitmapSource soure_1 = homepixiv ;
+                   
+                    BitmapSource soure_1 = homepixiv ;
                 dy = soure_1;
                      if (homepixiv != null)
                 {                

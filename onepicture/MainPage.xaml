@@ -208,11 +208,10 @@
 
                         <Image   Name="home_image_pixiv" />
                         
-                        <Border x:Name="oneborder" Margin="0,0,0,20"    RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF2291DE"  >
-                           
+                        <Border x:Name="oneborder" Margin="0,0,0,20"    RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF2291DE" d:IsHidden="True"  >
                             <StackPanel Padding="0,0,0,0" Orientation="Horizontal"  >
                                
-                                    <CommandBar ClosedDisplayMode="Compact" Background="#FF2291DE"  >
+                                    <CommandBar  ClosedDisplayMode="Compact" Background="{x:Null}"  >
                                         
                                       <AppBarButton Name="AppBarButton" Click="AppBarButton_Click" Label="下载" Padding="0,0,0,0" >
                                       <TextBlock FontSize="20" Text="&#xE118;" FontFamily="Segoe MDL2 Assets" HorizontalAlignment="Center" VerticalAlignment="Center" />
@@ -245,6 +244,36 @@
         </SplitView>
 
 
+        <Button  Width="300"  Grid.RowSpan="4" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+            <Button.Content>
+
+                <Grid>
+
+                    <Viewbox>
+
+                        <Grid>
+
+                            <Rectangle Width="200" Height="50" Fill="#FF2291DE" RadiusX="20" RadiusY="20">
+
+                            </Rectangle>
+
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="&#xE896;" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center"  />
+                                <TextBlock Text="同步" VerticalAlignment="Center"/>
+
+
+
+                            </StackPanel>
+
+                        </Grid>
+
+                    </Viewbox>
+
+                </Grid>
+
+            </Button.Content>
+
+        </Button>
 
 
         <Border Grid.Row="0"
@@ -297,6 +326,7 @@
                        Text=" &#xE970;" />
         </AppBarButton>
 
+
         <SplitView Name="mynemu"
                    Grid.RowSpan="4"
                    DisplayMode="Overlay"
@@ -347,6 +377,7 @@
           
      
         -->
+        <ProgressRing Name="Progressrun" Width="50" Height="50" Grid.RowSpan="4" Foreground="White" />
 
     </Grid>
 </Page>
