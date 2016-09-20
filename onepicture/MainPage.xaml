@@ -247,6 +247,44 @@
                         <Frame Name="myFrame" Grid.RowSpan="4" />
                         <controls:mainpageControl1 Visibility="Collapsed" ></controls:mainpageControl1>
                         -->
+                        <Border  x:Name="oneborder" Margin="0,0,1 0,20"  Height="60"  Grid.RowSpan="4" VerticalAlignment="Bottom" HorizontalAlignment="Right" >
+                            <Grid >
+                                <StackPanel Orientation="Horizontal"  >
+                                    <Button Name="AppBarButton" Click="AppBarButton_Click"    Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+                                        <Button.Content>
+                                            <Grid>
+                                                <Viewbox>
+                                                    <Grid>
+                                                        <Rectangle Width="180" Height="90" Fill="#FF2291DE" RadiusX="40" RadiusY="40"/>
+                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                            <TextBlock Margin="0,0,5,0" FontSize="30"  Text="&#xE896;" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                                            <TextBlock Text="下载" FontSize="30"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </Viewbox>
+                                            </Grid>
+                                        </Button.Content>
+                                    </Button>
+                                    <Button     Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+                                        <Button.Content>
+                                            <Grid>
+                                                <Viewbox>
+                                                    <Grid>
+                                                        <Rectangle   Height="50" Fill="#FF2291DE" RadiusX="20" RadiusY="20"/>
+                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                                            <TextBlock  Name="cc_text" Margin="10,3,10,3"  Text="没网╮(╯▽╰)╭"    VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                                        </StackPanel>
+                                                    </Grid>
+                                                </Viewbox>
+                                            </Grid>
+                                        </Button.Content>
+                                    </Button>
+
+                                </StackPanel>
+
+                            </Grid>
+                        </Border>
+
                     </Grid>
 
                 </PivotItem>
@@ -261,43 +299,6 @@
 
         </SplitView>
 
-        <Border  x:Name="oneborder" Margin="0,0,0,20" Height="50" Grid.RowSpan="4" VerticalAlignment="Bottom" HorizontalAlignment="Right" >
-            <Grid >
-                <StackPanel Orientation="Horizontal"  >
-                    <Button Name="AppBarButton" Click="AppBarButton_Click"    Height="50" Grid.RowSpan="4" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
-            <Button.Content>
-                <Grid>
-                    <Viewbox>
-                        <Grid>
-                            <Rectangle Width="80" Height="50" Fill="#FF2291DE" RadiusX="20" RadiusY="20"/>
-                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                <TextBlock Margin="0,0,5,0" Text="&#xE896;" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Center"  />
-                                <TextBlock Text="下载" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                            </StackPanel>
-                        </Grid>
-                    </Viewbox>
-                </Grid>
-            </Button.Content>
-        </Button>
-                    <Button    Height="50" Grid.RowSpan="4" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
-                        <Button.Content>
-                            <Grid>
-                                <Viewbox>
-                                    <Grid>
-                                        <Rectangle   Height="50" Fill="#FF2291DE" RadiusX="20" RadiusY="20"/>
-                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                            <TextBlock  Name="cc_text" Margin="10,3,10,3"  Text="没网╮(╯▽╰)╭"    VerticalAlignment="Center" HorizontalAlignment="Center"  />
-                                        </StackPanel>
-                                    </Grid>
-                                </Viewbox>
-                            </Grid>
-                        </Button.Content>
-                    </Button>
-
-                </StackPanel>
-            
-            </Grid>
-        </Border>
         
 
 
