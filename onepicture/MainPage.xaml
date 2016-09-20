@@ -5,6 +5,9 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:onepicture"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+      xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
+      xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
+      xmlns:core="using:Microsoft.Xaml.Interactions.Core"
       Background="#FF2291DE"
       RequestedTheme="Dark" 
       mc:Ignorable="d">
@@ -178,21 +181,35 @@
 
 
     <Grid>
-        <Grid.Background>
+
+           <Grid.Background>
 
             <ImageBrush x:Name="backimage"
                         ImageSource="{Binding ElementName=home_image_pixiv,
                                               Path=Source,
                                               Mode=TwoWay}"
                         Opacity="0.5"
-                        Stretch="UniformToFill" />
+                        Stretch="UniformToFill" >
+            </ImageBrush>
         </Grid.Background>
+     
+ 
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="auto" />
             <RowDefinition Height=" *" />
             <RowDefinition Height="auto" />
         </Grid.RowDefinitions>
+        <!-- 
+           <Image Grid.RowSpan="4" x:Name="backimage" Source="{Binding ElementName=home_image_pixiv,
+                                              Path=Source,
+                                              Mode=TwoWay}" Opacity="0.5"
+                        Stretch="UniformToFill">
+            
+        </Image>
+     
+        -->
+
         <SplitView Grid.RowSpan="4">
             <Pivot Name="pivot"
                    Padding="0,0,0,0"
@@ -208,7 +225,7 @@
 
                         <Image   Name="home_image_pixiv" />
                         
-                        <Border x:Name="oneborder" Margin="0,0,0,20"    RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF2291DE" d:IsHidden="True"  >
+                     <!--    <Border x:Name="oneborder" Margin="0,0,0,20"    RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF2291DE" d:IsHidden="True"  >
                             <StackPanel Padding="0,0,0,0" Orientation="Horizontal"  >
                                
                                     <CommandBar  ClosedDisplayMode="Compact" Background="{x:Null}"  >
@@ -227,7 +244,7 @@
                                 
                             </StackPanel>
                         </Border>
-                        <!-- <Frame Name="myFrame" Grid.RowSpan="4" />
+                        <Frame Name="myFrame" Grid.RowSpan="4" />
                         <controls:mainpageControl1 Visibility="Collapsed" ></controls:mainpageControl1>
                         -->
                     </Grid>
@@ -235,45 +252,53 @@
                 </PivotItem>
                 <PivotItem Margin="-12,0,-12,0">
                     <Grid BorderBrush="#FF2291DE">
+                       
                         <TextBlock Text="是的，你没看错，还在施工啊(╯‵□′)╯︵┻━┻" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-
+                        
                     </Grid>
                 </PivotItem>
             </Pivot>
 
         </SplitView>
 
-
-        <Button  Width="300"  Grid.RowSpan="4" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+        <Border  x:Name="oneborder" Margin="0,0,0,20" Height="50" Grid.RowSpan="4" VerticalAlignment="Bottom" HorizontalAlignment="Right" >
+            <Grid >
+                <StackPanel Orientation="Horizontal"  >
+                    <Button Name="AppBarButton" Click="AppBarButton_Click"    Height="50" Grid.RowSpan="4" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
             <Button.Content>
-
                 <Grid>
-
                     <Viewbox>
-
                         <Grid>
-
-                            <Rectangle Width="200" Height="50" Fill="#FF2291DE" RadiusX="20" RadiusY="20">
-
-                            </Rectangle>
-
-                            <StackPanel Orientation="Horizontal">
-                                <TextBlock Text="&#xE896;" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center"  />
-                                <TextBlock Text="同步" VerticalAlignment="Center"/>
-
-
-
+                            <Rectangle Width="80" Height="50" Fill="#FF2291DE" RadiusX="20" RadiusY="20"/>
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                <TextBlock Margin="0,0,5,0" Text="&#xE896;" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                <TextBlock Text="下载" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                             </StackPanel>
-
                         </Grid>
-
                     </Viewbox>
-
                 </Grid>
-
             </Button.Content>
-
         </Button>
+                    <Button    Height="50" Grid.RowSpan="4" Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
+                        <Button.Content>
+                            <Grid>
+                                <Viewbox>
+                                    <Grid>
+                                        <Rectangle   Height="50" Fill="#FF2291DE" RadiusX="20" RadiusY="20"/>
+                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                            <TextBlock  Name="cc_text" Margin="10,3,10,3"  Text="没网╮(╯▽╰)╭"    VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                        </StackPanel>
+                                    </Grid>
+                                </Viewbox>
+                            </Grid>
+                        </Button.Content>
+                    </Button>
+
+                </StackPanel>
+            
+            </Grid>
+        </Border>
+        
 
 
         <Border Grid.Row="0"

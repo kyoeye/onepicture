@@ -5,14 +5,11 @@ using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Navigation;
 using System.Net.NetworkInformation;
-using onepicture.proxy;
 using Windows.UI.Xaml.Media;
 using Windows.UI;
-using Windows.UI.Xaml.Documents;
 using Windows.UI.Text;
 using static onepicture.homeimageclass;
 using Windows.UI.Xaml.Media.Imaging;
-using onepicture;
 using System.Threading.Tasks;
 using Windows.Storage.Pickers;
 using Windows.Graphics.Imaging;
@@ -51,18 +48,31 @@ namespace onepicture
         public static BitmapSource  dy { get; set; }
        
         protected override async void OnNavigatedTo(NavigationEventArgs e)
-        {
+        { 
             
 
             base.OnNavigatedTo(e);
+         //   await backimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
+            //var propertyDesc = e.Parameter as PropertyDescriptor;
 
+
+
+            //if (propertyDesc != null)
+
+            //{
+
+            //    DataContext = propertyDesc.Expando;
+
+            //}
             home_image_pixiv.Stretch = Stretch.Uniform ; 
             if (NetworkInterface.GetIsNetworkAvailable())
             {                                      
                  RootObject1 homeimagepixiv = await goimage1();
                if (home_image_pixiv ==null)
                 {
-                    Progressrun.IsActive = true;
+                   // ProgressBar.Visibility = Visibility.Visible;
+
+                  //  Progressrun.Visibility = Visibility.Visible ;
                 }
                else 
                 {
@@ -83,7 +93,7 @@ namespace onepicture
                 {                
                     storyboardRectangle.Begin();
                 }
-               return;
+               
               }
 
   /*             
