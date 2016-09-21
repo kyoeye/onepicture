@@ -18,6 +18,7 @@ using Windows.Storage;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Graphics.Display;
 using Windows.UI.Xaml.Media.Animation;
+using Microsoft.Toolkit.Uwp.UI.Animations;
 using onepicture.cs;
 
 //“空白页”项模板在 http://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409 上有介绍
@@ -86,7 +87,7 @@ namespace onepicture
                 cc_text.Text = "宽:"+ homeimagepixiv.p_ori_width + "--高："+ homeimagepixiv.p_ori_hight;
                 
                 home_image_pixiv.Source = homepixiv;
-                   
+                   borderbackimage.Blur(value: 10, duration: 0, delay: 0);
                     BitmapSource soure_1 = homepixiv ;
                 dy = soure_1;
                      if (homepixiv != null)
@@ -127,7 +128,15 @@ namespace onepicture
                 onepicture.IsSelected = !onepicture.IsSelected;
                 if (NetworkInterface.GetIsNetworkAvailable())
                 {
+
                     oneborder.Visibility = Visibility.Collapsed;
+                    //动画
+                   // await oneborder.Fade(duration: 244.80, delay: 0, value:  0f).StartAsync();
+                    //await oneborder.Offset(duration: 10, delay: 0,
+                    //     offsetX: 1.0f,
+                    //     offsetY: 1.1f
+                    //        ).StartAsync();
+
                     base.Frame.Navigate(typeof(oneimage));
                 }
                 else

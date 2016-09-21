@@ -9,19 +9,21 @@
       xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
       xmlns:core="using:Microsoft.Xaml.Interactions.Core"
       Background="#FF2291DE"
-      RequestedTheme="Dark" 
+      RequestedTheme="Dark"       
       mc:Ignorable="d">
 
     <Page.Resources>
         <Storyboard x:Name="storyboardRectangle">
-
-            <DoubleAnimation AutoReverse="True"
+<!--   
+              <DoubleAnimation AutoReverse="True"
                              Duration="0:0:1"
                              From="1.0"
                              RepeatBehavior="1x"
                              Storyboard.TargetName="home_image_pixiv"
                              Storyboard.TargetProperty="Opacity"
                              To="0" />
+          
+            -->
             <DoubleAnimation AutoReverse="True"
                              Duration="0:0:1"
                              From="1.0"
@@ -175,14 +177,14 @@
                 </Setter.Value>
             </Setter>
         </Style>
-       
+
     </Page.Resources>
 
 
 
     <Grid>
 
-           <Grid.Background>
+        <Grid.Background>
 
             <ImageBrush x:Name="backimage"
                         ImageSource="{Binding ElementName=home_image_pixiv,
@@ -192,8 +194,8 @@
                         Stretch="UniformToFill" >
             </ImageBrush>
         </Grid.Background>
-     
- 
+
+
         <Grid.RowDefinitions>
             <RowDefinition Height="50" />
             <RowDefinition Height="auto" />
@@ -224,8 +226,10 @@
                         </Grid.Resources>
 
                         <Image   Name="home_image_pixiv" />
-                        
-                     <!--    <Border x:Name="oneborder" Margin="0,0,0,20"    RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF2291DE" d:IsHidden="True"  >
+
+
+
+                        <!--    <Border x:Name="oneborder" Margin="0,0,0,20"    RenderTransformOrigin="0.5,0.5" VerticalAlignment="Bottom" HorizontalAlignment="Center" Background="#FF2291DE" d:IsHidden="True"  >
                             <StackPanel Padding="0,0,0,0" Orientation="Horizontal"  >
                                
                                     <CommandBar  ClosedDisplayMode="Compact" Background="{x:Null}"  >
@@ -247,7 +251,7 @@
                         <Frame Name="myFrame" Grid.RowSpan="4" />
                         <controls:mainpageControl1 Visibility="Collapsed" ></controls:mainpageControl1>
                         -->
-                        <Border  x:Name="oneborder" Margin="0,0,1 0,20"  Height="60"  Grid.RowSpan="4" VerticalAlignment="Bottom" HorizontalAlignment="Right" >
+                        <Border  x:Name="oneborder" Margin="0,0,10,20"  Height="60"  Grid.RowSpan="4" VerticalAlignment="Bottom" HorizontalAlignment="Right" >
                             <Grid >
                                 <StackPanel Orientation="Horizontal"  >
                                     <Button Name="AppBarButton" Click="AppBarButton_Click"    Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
@@ -255,9 +259,13 @@
                                             <Grid>
                                                 <Viewbox>
                                                     <Grid>
-                                                        <Rectangle Width="180" Height="90" Fill="#FF2291DE" RadiusX="40" RadiusY="40"/>
-                                                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                                            <TextBlock Margin="0,0,5,0" FontSize="30"  Text="&#xE896;" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Center"  />
+                                                        <Rectangle  StrokeThickness="5" Width="180" Height="90" RadiusX="40" RadiusY="40" Stroke="#FF2291DE">
+                                                            <Rectangle.Fill>
+                                                                <SolidColorBrush Color="#FF2291DE" Opacity="0.699999988079071"/>
+                                                            </Rectangle.Fill>
+                                                        </Rectangle>
+                                                        <StackPanel  Orientation="Horizontal" HorizontalAlignment="Center">
+                                                            <TextBlock Margin="0,0,15,0" FontSize="40"  Text="&#xE896;" FontFamily="Segoe MDL2 Assets" VerticalAlignment="Center" HorizontalAlignment="Center"  />
                                                             <TextBlock Text="下载" FontSize="30"  VerticalAlignment="Center" HorizontalAlignment="Center"/>
                                                         </StackPanel>
                                                     </Grid>
@@ -270,7 +278,11 @@
                                             <Grid>
                                                 <Viewbox>
                                                     <Grid>
-                                                        <Rectangle   Height="50" Fill="#FF2291DE" RadiusX="20" RadiusY="20"/>
+                                                        <Rectangle Stroke="#FF2291DE" StrokeThickness="3"  Height="50"  RadiusX="20" RadiusY="20">
+                                                            <Rectangle.Fill>
+                                                                <SolidColorBrush Color="#FF2291DE" Opacity="0.699999988079071"/>
+                                                            </Rectangle.Fill>
+                                                        </Rectangle>
                                                         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                                                             <TextBlock  Name="cc_text" Margin="10,3,10,3"  Text="没网╮(╯▽╰)╭"    VerticalAlignment="Center" HorizontalAlignment="Center"  />
                                                         </StackPanel>
@@ -290,20 +302,32 @@
                 </PivotItem>
                 <PivotItem Margin="-12,0,-12,0">
                     <Grid BorderBrush="#FF2291DE">
-                       
+
                         <TextBlock Text="是的，你没看错，还在施工啊(╯‵□′)╯︵┻━┻" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-                        
+
                     </Grid>
                 </PivotItem>
             </Pivot>
 
         </SplitView>
 
-        
+
 
 
         <Border Grid.Row="0"
                 Height=" 50" Background="#FF2291DE" Opacity="0.5">
+            <Image Name="borderbackimage" Stretch="UniformToFill"  Source="{Binding ElementName=home_image_pixiv,
+                                              Path=Source,
+                                              Mode=TwoWay}" >
+                <interactivity:Interaction.Behaviors>
+                    <behaviors:Blur x:Name="BlurBehavior" 
+                                     
+                      Value="10"                         
+                       Duration="10" 
+                      Delay="0" 
+                     AutomaticallyStart="True"/>
+                </interactivity:Interaction.Behaviors>
+            </Image>
 
         </Border>
         <RelativePanel Grid.Row="0"
@@ -403,7 +427,7 @@
           
      
         -->
-        <ProgressRing Name="Progressrun" Width="50" Height="50" Grid.RowSpan="4" Foreground="White" />
+        <ProgressRing IsActive="True" Name="Progressrun" Width="50" Height="50" Grid.RowSpan="4" Foreground="White" />
 
     </Grid>
 </Page>
