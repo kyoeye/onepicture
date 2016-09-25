@@ -20,7 +20,7 @@
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxPackageDir>C:\Users\84763\Desktop\</AppxPackageDir>
     <AppxBundle>Always</AppxBundle>
-    <AppxBundlePlatforms>x86|arm</AppxBundlePlatforms>
+    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
     <PackageCertificateThumbprint>07763FEA86D68FE68FB79EF8449DC0CE91342D37</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -103,6 +103,9 @@
     </Compile>
     <Compile Include="cs\randomclass.cs" />
     <Compile Include="cs\shengliukaiguan.cs" />
+    <Compile Include="kj\loading.xaml.cs">
+      <DependentUpon>loading.xaml</DependentUpon>
+    </Compile>
     <Compile Include="kj\mainpageControl1.xaml.cs">
       <DependentUpon>mainpageControl1.xaml</DependentUpon>
     </Compile>
@@ -203,6 +206,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="kj\loading.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="kj\mainpageControl1.xaml">
       <SubType>Designer</SubType>

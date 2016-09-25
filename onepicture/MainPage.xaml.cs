@@ -38,26 +38,24 @@ namespace onepicture
 
         }
 
-    
-            public int setting3 { get; set; }
-            public void setting2(int set)
-            {
-              setting3 = set;
-                
-            }
 
-        public static BitmapSource  dy { get; set; }
-       
+        public int setting3 { get; set; }
+        public void setting2(int set)
+        {
+            setting3 = set;
+
+        }
+
+        public static BitmapSource dy { get; set; }
+        BitmapSource prorunActive;
+
         protected override async void OnNavigatedTo(NavigationEventArgs e)
-        { 
-            
+        {
+
 
             base.OnNavigatedTo(e);
-         //   await backimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
-            //var propertyDesc = e.Parameter as PropertyDescriptor;
-
-
-
+            //   await backimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
+            //var propertyDesc = e.Parameter as PropertyDescriptor;         
             //if (propertyDesc != null)
 
             //{
@@ -65,64 +63,54 @@ namespace onepicture
             //    DataContext = propertyDesc.Expando;
 
             //}
-            home_image_pixiv.Stretch = Stretch.Uniform ; 
+            home_image_pixiv.Stretch = Stretch.Uniform;
             if (NetworkInterface.GetIsNetworkAvailable())
-            {                                      
-                 RootObject1 homeimagepixiv = await goimage1();
-               if (home_image_pixiv ==null)
+            {
+                RootObject1 homeimagepixiv = await goimage1();
+        
+                if (homeimagepixiv != null)
                 {
-                   // ProgressBar.Visibility = Visibility.Visible;
+                    Progressrun.Visibility = Visibility.Visible;
+                    BitmapImage homepixiv = new BitmapImage(new Uri(homeimagepixiv.p_ori));
+                    cc_text.FontSize = 14;
+                    cc_text.Text = "宽:" + homeimagepixiv.p_ori_width + "--高：" + homeimagepixiv.p_ori_hight;
 
-                  //  Progressrun.Visibility = Visibility.Visible ;
-                }
-               else 
-                {
-                    Progressrun.IsActive = false;
-                }
-                if (homeimagepixiv != null )
-                {
+                    home_image_pixiv.Source = homepixiv;
+                    await home_image_pixiv.Fade(duration: 10, delay: 0, value: 1f).StartAsync();
+                    await borderbackimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
+                    //   await home_image_pixiv.Blur(duration: 0, delay: 0, value: 10).StartAsync();
+                    await backimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
 
-                  BitmapImage homepixiv = new BitmapImage(new Uri(homeimagepixiv.p_ori));
-                cc_text.FontSize = 14;
-                cc_text.Text = "宽:"+ homeimagepixiv.p_ori_width + "--高："+ homeimagepixiv.p_ori_hight;
-                
-                home_image_pixiv.Source = homepixiv;
-                   borderbackimage.Blur(value: 10, duration: 0, delay: 0);
-                    BitmapSource soure_1 = homepixiv ;
-                dy = soure_1;
-                     if (homepixiv != null)
-                {                
-                    storyboardRectangle.Begin();
-                }
-               
-              }
 
-  /*             
-                if (home_image_pixiv.Source != null)
-                {
-                    await Task.Delay(1500);
-                    border1.Visibility = Visibility.Visible;
+                    BitmapSource soure_1 = homepixiv;
+                    prorunActive = soure_1;
+                    Progressrun.Visibility = Visibility.Collapsed ;
+                    if (homepixiv != null)
+                    {
+                        storyboardRectangle.Begin();
+                    }
+
                 }
-                else
+                if (prorunActive == null)
                 {
-                   border1.Visibility = Visibility.Collapsed ;
-                }*/
-            } 
+                    Progressrun.Visibility = Visibility.Visible;
+                }
+            }
             else
             {
                 var msgDialog = new Windows.UI.Popups.MessageDialog("请检查交易资格并尝试继续") { Title = "网络结合失败(/≧▽≦)/" };
                 msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("取消"));
                 await msgDialog.ShowAsync();
             }
-           
-         }
 
-       
+        }
+
+
 
 
         public async void Listboxmenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-          
+
             if (onepicture.IsSelected)
             {
                 onepicture.IsSelected = !onepicture.IsSelected;
@@ -131,7 +119,7 @@ namespace onepicture
 
                     oneborder.Visibility = Visibility.Collapsed;
                     //动画
-                   // await oneborder.Fade(duration: 244.80, delay: 0, value:  0f).StartAsync();
+                    // await oneborder.Fade(duration: 244.80, delay: 0, value:  0f).StartAsync();
                     //await oneborder.Offset(duration: 10, delay: 0,
                     //     offsetX: 1.0f,
                     //     offsetY: 1.1f
@@ -152,22 +140,22 @@ namespace onepicture
             {
                 setting.IsSelected = !setting.IsSelected;
                 oneborder.Visibility = Visibility.Collapsed;
-                base.Frame.Navigate(typeof(seting), null , new SuppressNavigationTransitionInfo());
+                base.Frame.Navigate(typeof(seting), null, new SuppressNavigationTransitionInfo());
                 mynemu.IsPaneOpen = !mynemu.IsPaneOpen;
-               
+
             }
         }
-     
+
         public void hanbao_Click(object sender, RoutedEventArgs e)
         {
             mynemu.IsPaneOpen = !mynemu.IsPaneOpen;
         }
 
-        private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private async void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             home_page.Content = "首页";
             home_page.FontSize = 18;
-   
+
             home_page.Foreground = new SolidColorBrush(Color.FromArgb(225, 213, 213, 216));
             fenlei_page.Content = "分类";
             fenlei_page.FontSize = 18;
@@ -186,6 +174,7 @@ namespace onepicture
                     home_page.FontWeight = FontWeights.ExtraLight;
                     fenlei_page.FontWeight = FontWeights.Bold;
                     fenlei_page.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
+                    await borderbackimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
                     break;
             }
         }
@@ -196,35 +185,40 @@ namespace onepicture
             pivot.SelectedItem = pivot.Items[0];
         }
 
-        private void fenlei_page_Click(object sender, RoutedEventArgs e)
+        private async void fenlei_page_Click(object sender, RoutedEventArgs e)
         {
             pivot.SelectedIndex = 1;
             pivot.SelectedItem = pivot.Items[1];
+            await borderbackimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
+
         }
 
-        private void twoborder_Tapped(object sender, TappedRoutedEventArgs e)
+        private async void twoborder_Tapped(object sender, TappedRoutedEventArgs e)
         {
+            await oneborder.Fade(duration: 10, delay: 0, value: 1f).StartAsync();
             oneborder.Visibility = Visibility.Visible;
+         
+
         }
 
         public void random()
         {
             Random ran = new Random();
-   //         intRandKey = ran.Next(1,10);
+            //         intRandKey = ran.Next(1,10);
         }
 
-     
+
         //下载图片
         private async void AppBarButton_Click(object sender, RoutedEventArgs e)
         {
             RootObject1 myimage = await homeimageclass.goimage1();
             var saveFile = new FileSavePicker();
             saveFile.SuggestedStartLocation = PickerLocationId.PicturesLibrary; //下拉列表的文件类型
-            string filename = "文件类型" ;
+            string filename = "文件类型";
             saveFile.FileTypeChoices.Add(filename, new List<string>() { ".png", ".jpg", ".jpeg", ".bmp" }); //文件命名，图片+数字自加。。。有机会换成获取api返回的id试试
 
             string filenam = myimage.p_mid;
-           
+
             saveFile.SuggestedFileName = filenam;
             StorageFile sFile = await saveFile.PickSaveFileAsync();
 
@@ -238,13 +232,13 @@ namespace onepicture
                 await renderTargerBitemap.RenderAsync(home_image_pixiv);
 
                 //调用模态框
-              //  await ModalProgressDig.ShowAsync();
+                //  await ModalProgressDig.ShowAsync();
                 var progressTask = ModalProgressDig.ShowAsync();
                 randomclass dd = new randomclass();
                 dd.randome();
                 dd.stringzifu();
-                contenttext.Text = dd.zif;         
-               // dialogimage.Source = ne (dd.imageuri);
+                contenttext.Text = dd.zif;
+                // dialogimage.Source = ne (dd.imageuri);
                 var pixelBuffer = await renderTargerBitemap.GetPixelsAsync();
                 //下面这段不明所以的说
                 using (var fileStream = await sFile.OpenAsync(FileAccessMode.ReadWrite))
@@ -263,17 +257,17 @@ namespace onepicture
                     await encoder.FlushAsync();
                 }
                 await Task.Delay(4500);
-               
+
                 progressTask.Cancel();
                 ModalProgressDig.Hide();
             }
             else
             {
-                
+
             }
 
         }
 
-      
+
     }
 }

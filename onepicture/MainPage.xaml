@@ -3,7 +3,7 @@
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:controls="using:onepicture.kj"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-      xmlns:local="using:onepicture"
+      xmlns:local="using:onepicture.kj"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
       xmlns:interactivity="using:Microsoft.Xaml.Interactivity"
       xmlns:behaviors="using:Microsoft.Toolkit.Uwp.UI.Animations.Behaviors"
@@ -24,6 +24,8 @@
                              To="0" />
           
             -->
+        
+            
             <DoubleAnimation AutoReverse="True"
                              Duration="0:0:1"
                              From="1.0"
@@ -184,7 +186,7 @@
 
     <Grid>
 
-        <Grid.Background>
+        <!--<Grid.Background>
 
             <ImageBrush x:Name="backimage"
                         ImageSource="{Binding ElementName=home_image_pixiv,
@@ -193,7 +195,7 @@
                         Opacity="0.5"
                         Stretch="UniformToFill" >
             </ImageBrush>
-        </Grid.Background>
+        </Grid.Background>-->
 
 
         <Grid.RowDefinitions>
@@ -211,7 +213,13 @@
         </Image>
      
         -->
-
+        <Image x:Name="backimage"
+                        Source="{Binding ElementName=home_image_pixiv,
+                                              Path=Source,
+                                              Mode=TwoWay}"
+                        Grid.RowSpan="4"
+                        Opacity="0.5"
+                        Stretch="UniformToFill" />
         <SplitView Grid.RowSpan="4">
             <Pivot Name="pivot"
                    Padding="0,0,0,0"
@@ -304,7 +312,24 @@
                     <Grid BorderBrush="#FF2291DE">
 
                         <TextBlock Text="是的，你没看错，还在施工啊(╯‵□′)╯︵┻━┻" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-
+                        <GridView HorizontalAlignment="Center" >
+                            <GridViewItem MaxHeight="500" MaxWidth="500" Background="#FF0083E2" >
+                                <Grid >
+                                    <Image Height="200" Width="200"/>
+                                    <Border Height="50" VerticalAlignment="Bottom" Background="#FF036DB9" />
+                                    <TextBlock FontSize="40" Text="本机尺寸" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.8" />
+                                </Grid>
+                            </GridViewItem>
+                            <GridViewItem MaxHeight="500" MaxWidth="500" Background="#FF0083E2" >
+                                <Grid >
+                                    <Image Height="200" Width="200"/>
+                                    <Border Height="50" VerticalAlignment="Bottom" Background="#FF036DB9" />
+                                    <Viewbox VerticalAlignment="Bottom" HorizontalAlignment="Center"  >
+                                      <TextBlock  Text="1920×1080" Opacity="0.8" />
+                                    </Viewbox >
+                                </Grid>
+                            </GridViewItem>
+                        </GridView>
                     </Grid>
                 </PivotItem>
             </Pivot>
@@ -313,21 +338,20 @@
 
 
 
-
-        <Border Grid.Row="0"
-                Height=" 50" Background="#FF2291DE" Opacity="0.5">
-            <Image Name="borderbackimage" Stretch="UniformToFill"  Source="{Binding ElementName=home_image_pixiv,
+            <Image Grid.Row="0" Name="borderbackimage" Stretch="UniformToFill"  Source="{Binding ElementName=home_image_pixiv,
                                               Path=Source,
                                               Mode=TwoWay}" >
-                <interactivity:Interaction.Behaviors>
-                    <behaviors:Blur x:Name="BlurBehavior" 
-                                     
+                <!--<interactivity:Interaction.Behaviors>
+                    <behaviors:Blur x:Name="BlurBehavior"                                      
                       Value="10"                         
                        Duration="10" 
                       Delay="0" 
                      AutomaticallyStart="True"/>
-                </interactivity:Interaction.Behaviors>
+                </interactivity:Interaction.Behaviors>-->
             </Image>
+
+        <Border Grid.Row="0"
+                Height=" 50" Background="#FF2291DE" Opacity="0.3"  >
 
         </Border>
         <RelativePanel Grid.Row="0"
@@ -380,7 +404,7 @@
         <SplitView Name="mynemu"
                    Grid.RowSpan="4"
                    DisplayMode="Overlay"
-                   OpenPaneLength=" 300" d:IsHidden="True">
+                   OpenPaneLength="325" d:IsHidden="True">
 
             <SplitView.Pane>
                 <ListBox Name="Listboxmenu"
@@ -427,7 +451,7 @@
           
      
         -->
-        <ProgressRing IsActive="True" Name="Progressrun" Width="50" Height="50" Grid.RowSpan="4" Foreground="White" />
-
+        <!--<ProgressRing IsActive="True" Name="Progressrun" Width="50" Height="50" Grid.RowSpan="4" Foreground="White" />-->
+        <local:loading Grid.RowSpan="4"  x:Name="Progressrun"  HorizontalAlignment="Center" VerticalAlignment="Center" />
     </Grid>
 </Page>
