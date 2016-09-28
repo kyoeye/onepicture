@@ -338,7 +338,7 @@
 
 
 
-            <Image Grid.Row="0" Name="borderbackimage" Stretch="UniformToFill"  Source="{Binding ElementName=home_image_pixiv,
+            <Image Grid.Row="0" Name="borderbackimage" Stretch="UniformToFill"  Source="{Binding ElementName=backimage,
                                               Path=Source,
                                               Mode=TwoWay}" >
                 <!--<interactivity:Interaction.Behaviors>

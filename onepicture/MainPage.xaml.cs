@@ -77,7 +77,7 @@ namespace onepicture
 
                     home_image_pixiv.Source = homepixiv;
                     await home_image_pixiv.Fade(duration: 10, delay: 0, value: 1f).StartAsync();
-                    await borderbackimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
+                    //await borderbackimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
                     //   await home_image_pixiv.Blur(duration: 0, delay: 0, value: 10).StartAsync();
                     await backimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
 
