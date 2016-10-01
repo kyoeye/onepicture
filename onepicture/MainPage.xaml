@@ -313,14 +313,14 @@
 
                         <TextBlock Text="是的，你没看错，还在施工啊(╯‵□′)╯︵┻━┻" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
                         <GridView HorizontalAlignment="Center" >
-                            <GridViewItem MaxHeight="500" MaxWidth="500" Background="#FF0083E2" >
+                            <GridViewItem  Background="#FF0083E2" >
                                 <Grid >
                                     <Image Height="200" Width="200"/>
                                     <Border Height="50" VerticalAlignment="Bottom" Background="#FF036DB9" />
                                     <TextBlock FontSize="40" Text="本机尺寸" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.8" />
                                 </Grid>
                             </GridViewItem>
-                            <GridViewItem MaxHeight="500" MaxWidth="500" Background="#FF0083E2" >
+                            <GridViewItem  Background="#FF0083E2" >
                                 <Grid >
                                     <Image Height="200" Width="200"/>
                                     <Border Height="50" VerticalAlignment="Bottom" Background="#FF036DB9" />
@@ -338,17 +338,17 @@
 
 
 
-            <Image Grid.Row="0" Name="borderbackimage" Stretch="UniformToFill"  Source="{Binding ElementName=backimage,
+          <!--<Image Grid.Row="0" Name="borderbackimage" Stretch="UniformToFill"  Source="{Binding ElementName=backimage,
                                               Path=Source,
                                               Mode=TwoWay}" >
-                <!--<interactivity:Interaction.Behaviors>
+               --><!--<interactivity:Interaction.Behaviors>
                     <behaviors:Blur x:Name="BlurBehavior"                                      
                       Value="10"                         
                        Duration="10" 
                       Delay="0" 
                      AutomaticallyStart="True"/>
-                </interactivity:Interaction.Behaviors>-->
-            </Image>
+                </interactivity:Interaction.Behaviors>--><!--
+            </Image>-->
 
         <Border Grid.Row="0"
                 Height=" 50" Background="#FF2291DE" Opacity="0.3"  >

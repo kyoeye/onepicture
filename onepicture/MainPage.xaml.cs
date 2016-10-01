@@ -174,7 +174,7 @@ namespace onepicture
                     home_page.FontWeight = FontWeights.ExtraLight;
                     fenlei_page.FontWeight = FontWeights.Bold;
                     fenlei_page.Foreground = new SolidColorBrush(Color.FromArgb(255, 255, 255, 255));
-                    await borderbackimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
+                    //await borderbackimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
                     break;
             }
         }
@@ -189,7 +189,7 @@ namespace onepicture
         {
             pivot.SelectedIndex = 1;
             pivot.SelectedItem = pivot.Items[1];
-            await borderbackimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
+            //await borderbackimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
 
         }
 
