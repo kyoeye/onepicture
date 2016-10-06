@@ -385,7 +385,7 @@
                    FontSize="20"
                    FontWeight="Bold"
                    Foreground="White" 
-                   Text="全年龄" />
+                   Text="萌豚" SelectionChanged="TextBlock_SelectionChanged" />
 
 
         <AppBarButton Width="55"

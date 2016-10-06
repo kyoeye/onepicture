@@ -151,7 +151,7 @@ namespace onepicture
             mynemu.IsPaneOpen = !mynemu.IsPaneOpen;
         }
 
-        private async void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void Pivot_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             home_page.Content = "首页";
             home_page.FontSize = 18;
@@ -185,7 +185,7 @@ namespace onepicture
             pivot.SelectedItem = pivot.Items[0];
         }
 
-        private async void fenlei_page_Click(object sender, RoutedEventArgs e)
+        private void fenlei_page_Click(object sender, RoutedEventArgs e)
         {
             pivot.SelectedIndex = 1;
             pivot.SelectedItem = pivot.Items[1];
@@ -268,6 +268,9 @@ namespace onepicture
 
         }
 
-
+        private void TextBlock_SelectionChanged(object sender, RoutedEventArgs e)
+        {
+            //喵喵喵喵？？
+        }
     }
 }
