@@ -116,6 +116,33 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        <Style x:Key="MenuFlyoutPresenterStyle1" TargetType="MenuFlyoutPresenter">
+            <Setter Property="Background" Value="{ThemeResource SystemControlBackgroundChromeMediumLowBrush}"/>
+            <Setter Property="BorderBrush" Value="{ThemeResource SystemControlForegroundChromeHighBrush}"/>
+            <Setter Property="BorderThickness" Value="{ThemeResource FlyoutBorderThemeThickness}"/>
+            <Setter Property="Padding" Value="{ThemeResource MenuFlyoutPresenterThemePadding}"/>
+            <Setter Property="ScrollViewer.HorizontalScrollMode" Value="Disabled"/>
+            <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Disabled"/>
+            <Setter Property="ScrollViewer.VerticalScrollMode" Value="Auto"/>
+            <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="ScrollViewer.IsHorizontalRailEnabled" Value="False"/>
+            <Setter Property="ScrollViewer.IsVerticalRailEnabled" Value="False"/>
+            <Setter Property="ScrollViewer.ZoomMode" Value="Disabled"/>
+            <Setter Property="MaxWidth" Value="{ThemeResource FlyoutThemeMaxWidth}"/>
+            <Setter Property="MinHeight" Value="{ThemeResource MenuFlyoutThemeMinHeight}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="MenuFlyoutPresenter">
+                        <Grid Background="{TemplateBinding Background}">
+                            <Border x:Name="MenuFlyoutPresenterBorder"  Background="#FF2291DE" BorderBrush="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}"/>
+                            <ScrollViewer x:Name="MenuFlyoutPresenterScrollViewer" AutomationProperties.AccessibilityView="Raw" HorizontalScrollMode="{TemplateBinding ScrollViewer.HorizontalScrollMode}" HorizontalScrollBarVisibility="{TemplateBinding ScrollViewer.HorizontalScrollBarVisibility}" IsHorizontalRailEnabled="{TemplateBinding ScrollViewer.IsHorizontalRailEnabled}" IsVerticalRailEnabled="{TemplateBinding ScrollViewer.IsVerticalRailEnabled}" Margin="{TemplateBinding BorderThickness}" MinWidth="{Binding TemplateSettings.FlyoutContentMinWidth, RelativeSource={RelativeSource Mode=TemplatedParent}}" Padding="{TemplateBinding Padding}" VerticalScrollBarVisibility="{TemplateBinding ScrollViewer.VerticalScrollBarVisibility}" VerticalScrollMode="{TemplateBinding ScrollViewer.VerticalScrollMode}" ZoomMode="{TemplateBinding ScrollViewer.ZoomMode}">
+                                <ItemsPresenter Margin="0,8,0,8"/>
+                            </ScrollViewer>
+                        </Grid>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
 
     </Page.Resources>
     <Page.BottomAppBar>
@@ -141,16 +168,26 @@
                           Foreground="White"
                           Icon="Refresh"
                           Label="更换" />
-            <!--
-                    <CommandBar.SecondaryCommands>
-                <AppBarButton Name="Blackms1"
+
+            <CommandBar.SecondaryCommands>
+                <AppBarButton Name="homebackground"                             
+                              Icon="Globe"
+                              Click="homebackground_Click"
+                              Label="设置为" >
+                    <MenuFlyout  x:Name="myFlyout" MenuFlyoutPresenterStyle="{StaticResource MenuFlyoutPresenterStyle1}" >
+                        <MenuFlyoutItem  Text="开始屏幕背景" Name="StarBackground" Click="StarBackground_Click"  Foreground="White"/>
+                        <MenuFlyoutItem Text="锁屏背景"  Foreground="White"/>
+                    </MenuFlyout>
+                </AppBarButton>
+                <AppBarSeparator/>
+                <!--<AppBarButton Name="Blackms1"
                               Click="gotoimage_Click"
                               Icon="Globe"
-                              Label="原图" />
+                              Label="设置为" />-->
 
             </CommandBar.SecondaryCommands>
-    
-            -->
+
+
             <CommandBar.Content>
                 <Viewbox StretchDirection="DownOnly" VerticalAlignment="Center" >
                     <TextBlock Name="twotext"
@@ -165,7 +202,7 @@
 
     <Grid >
 
-        <Grid.Background>
+        <!--<Grid.Background>
 
             <ImageBrush x:Name="backimage"
                         ImageSource="{Binding ElementName=thephoto,
@@ -173,8 +210,8 @@
                                               Mode=TwoWay}"
                         Opacity="0.5"
                         Stretch="UniformToFill" />
-        </Grid.Background>
-<!--
+        </Grid.Background>-->
+        <!--
       <Grid.ColumnDefinitions>
             <ColumnDefinition Width="15" />
             <ColumnDefinition Width="*" />
@@ -187,7 +224,12 @@
             <RowDefinition Height="15" />
         </Grid.RowDefinitions>   
         -->
-       
+        <Image  x:Name="backimage"
+                        Source="{Binding ElementName=thephoto,
+                                              Path=Source,
+                                              Mode=TwoWay}"
+                        Opacity="0.5"
+                        Stretch="UniformToFill" />
         <ProgressRing 
                       Width="50"
                       Height="50"
@@ -197,12 +239,12 @@
                       HorizontalScrollMode="Enabled"
                       Visibility="Visible" 
                       >
-                  <Image   
+            <Image   
                
                    Name="thephoto"
                    HorizontalAlignment="Center"
                    VerticalAlignment="Center" />
-        
+
         </ScrollViewer>
 
         <ContentDialog Grid.RowSpan="4" x:Name="ModalProgressDig" Style="{StaticResource SitAndRelaxDialogStyle}" VerticalAlignment="Center">
