@@ -248,7 +248,7 @@ namespace onepicture.page
             StorageFile file = await StorageFile.GetFileFromApplicationUriAsync(imguri);
 
             UserProfilePersonalizationSettings setting  = UserProfilePersonalizationSettings.Current; //实例化
-             await setting.TrySetLockScreenImageAsync(file);
+            await setting.TrySetLockScreenImageAsync(file);
         }
     }
 }

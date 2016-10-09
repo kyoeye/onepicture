@@ -412,7 +412,7 @@
                          SelectionChanged="Listboxmenu_SelectionChanged" Style="{StaticResource ListBoxStyle1}">
                     <ListBoxItem Padding="0,0,0,0">
                         <Image Height="200"
-                               Source="{Binding ElementName=home_image_pixiv,
+                               Source="{Binding ElementName=backimage,
                                                 Path=Source,
                                                 Mode=TwoWay}"
                                Stretch="UniformToFill" />
