@@ -1,7 +1,7 @@
-﻿<Page x:Class="onepicture.MainPage"
+﻿ <Page x:Class="onepicture.MainPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      xmlns:controls="using:onepicture.kj"
+      xmlns:controls="using:Microsoft.Toolkit.Uwp.UI.Controls"
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
       xmlns:local="using:onepicture.kj"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -13,9 +13,18 @@
       mc:Ignorable="d">
 
     <Page.Resources>
+
+
+
         <Storyboard x:Name="storyboardRectangle">
-<!--   
-              <DoubleAnimation AutoReverse="True"
+            <DoubleAnimation x:Name="textanimation"
+                         From="0"
+                         To="1"
+                         Duration="0:0:1"
+                         Storyboard.TargetName="xiaotishi"
+                         Storyboard.TargetProperty="Opacity"
+                         />
+            <!--      <DoubleAnimation AutoReverse="True"
                              Duration="0:0:1"
                              From="1.0"
                              RepeatBehavior="1x"
@@ -24,15 +33,15 @@
                              To="0" />
           
             -->
-        
-            
-            <DoubleAnimation AutoReverse="True"
+
+
+            <!--<DoubleAnimation AutoReverse="True"
                              Duration="0:0:1"
                              From="1.0"
                              RepeatBehavior="1x"
                              Storyboard.TargetName="backimage"
                              Storyboard.TargetProperty="Opacity"
-                             To="0" />
+                             To="0" />-->
         </Storyboard>
         <Style x:Key="ListBoxStyle1" TargetType="ListBox">
             <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundBaseHighBrush}"/>
@@ -186,6 +195,7 @@
 
     <Grid>
 
+
         <!--<Grid.Background>
 
             <ImageBrush x:Name="backimage"
@@ -262,6 +272,11 @@
                         <Border  x:Name="oneborder" Margin="0,0,10,20"  Height="60"  Grid.RowSpan="4" VerticalAlignment="Bottom" HorizontalAlignment="Right" >
                             <Grid >
                                 <StackPanel Orientation="Horizontal"  >
+                                    <StackPanel.ChildrenTransitions>
+                                        <TransitionCollection>
+                                            <EntranceThemeTransition/>
+                                        </TransitionCollection>
+                                    </StackPanel.ChildrenTransitions>
                                     <Button Name="AppBarButton" Click="AppBarButton_Click"    Background="{x:Null}" BorderBrush="{x:Null}" HorizontalAlignment="Center" VerticalAlignment="Bottom" >
                                         <Button.Content>
                                             <Grid>
@@ -304,33 +319,16 @@
 
                             </Grid>
                         </Border>
+                        <!--<Popup VerticalAlignment="Bottom" >
+                           <controls:mainpageControl1  />
+                        </Popup>-->
+                        <local:loading Grid.RowSpan="4"  x:Name="Progressrun"  HorizontalAlignment="Center" VerticalAlignment="Center" />
 
                     </Grid>
-
                 </PivotItem>
                 <PivotItem Margin="-12,0,-12,0">
-                    <Grid BorderBrush="#FF2291DE">
 
-                        <TextBlock Text="是的，你没看错，还在施工啊(╯‵□′)╯︵┻━┻" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White"/>
-                        <GridView HorizontalAlignment="Center" >
-                            <GridViewItem  Background="#FF0083E2" >
-                                <Grid >
-                                    <Image Height="200" Width="200"/>
-                                    <Border Height="50" VerticalAlignment="Bottom" Background="#FF036DB9" />
-                                    <TextBlock FontSize="40" Text="本机尺寸" VerticalAlignment="Bottom" HorizontalAlignment="Center" Opacity="0.8" />
-                                </Grid>
-                            </GridViewItem>
-                            <GridViewItem  Background="#FF0083E2" >
-                                <Grid >
-                                    <Image Height="200" Width="200"/>
-                                    <Border Height="50" VerticalAlignment="Bottom" Background="#FF036DB9" />
-                                    <Viewbox VerticalAlignment="Bottom" HorizontalAlignment="Center"  >
-                                      <TextBlock  Text="1920×1080" Opacity="0.8" />
-                                    </Viewbox >
-                                </Grid>
-                            </GridViewItem>
-                        </GridView>
-                    </Grid>
+
                 </PivotItem>
             </Pivot>
 
@@ -338,22 +336,29 @@
 
 
 
-          <!--<Image Grid.Row="0" Name="borderbackimage" Stretch="UniformToFill"  Source="{Binding ElementName=backimage,
+        <!--<Image Grid.Row="0" Name="borderbackimage" Stretch="UniformToFill"  Source="{Binding ElementName=backimage,
                                               Path=Source,
                                               Mode=TwoWay}" >
-               --><!--<interactivity:Interaction.Behaviors>
+               -->
+        <!--<interactivity:Interaction.Behaviors>
                     <behaviors:Blur x:Name="BlurBehavior"                                      
                       Value="10"                         
                        Duration="10" 
                       Delay="0" 
                      AutomaticallyStart="True"/>
-                </interactivity:Interaction.Behaviors>--><!--
+                </interactivity:Interaction.Behaviors>-->
+        <!--
             </Image>-->
 
-        <Border Grid.Row="0"
-                Height=" 50" Background="#FF2291DE" Opacity="0.3"  >
 
-        </Border>
+
+        <Border Grid.Row="0" Name="Tapborder"
+                Height=" 50" Background="#FF2291DE" Opacity="0.3" />
+
+
+        <Grid Name="xiaotishi" Grid.Row="1"  Background="#FF0091D4" >
+            <TextBlock Text="小提示：点击屏幕即可下载图片哦" HorizontalAlignment="Center"/>
+        </Grid>
         <RelativePanel Grid.Row="0"
                        HorizontalAlignment="Right"
                        VerticalAlignment="Center"
@@ -452,6 +457,5 @@
      
         -->
         <!--<ProgressRing IsActive="True" Name="Progressrun" Width="50" Height="50" Grid.RowSpan="4" Foreground="White" />-->
-        <local:loading Grid.RowSpan="4"  x:Name="Progressrun"  HorizontalAlignment="Center" VerticalAlignment="Center" />
     </Grid>
 </Page>

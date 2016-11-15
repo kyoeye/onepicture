@@ -90,8 +90,8 @@ namespace onepicture.page
    
         public async void fresh_Click( object sender, RoutedEventArgs e)
         {
-            
-             //  using page.seting. ;
+            try
+            {
              shengliukaiguan diaoyong = new shengliukaiguan();
             //   shengliukaiguan dd = await shengliukaiguan.on();
 
@@ -138,6 +138,15 @@ namespace onepicture.page
                 }
             }
           
+
+            }
+            catch
+            {
+                var msgDialog = new Windows.UI.Popups.MessageDialog("看到这条提示意味着当前ip已被数据源的防火墙拦截。。。开发者会在下一个更新中将api更改为yande.re，当然，你换个网络还是能继续访问该软件的") { Title = "一个坏消息" };
+                msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("了解"));
+                await msgDialog.ShowAsync();
+            }
+             //  using page.seting. ;
        }
         
    

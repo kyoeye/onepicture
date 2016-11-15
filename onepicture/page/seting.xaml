@@ -67,7 +67,8 @@
                             <TextBlock Margin="0,5,0,0"
                                        HorizontalAlignment="Center"
                                        Foreground="#FFE2E2E2"
-                                       Text="2016.10.8 Beta 不放假还要加班的国庆！" />
+                                       TextWrapping="Wrap" 
+                                       Text="2016.11.1 万圣节过后，这将是萌豚beta的最后一次更新,2.0版本正在路上" />
 
 
 
@@ -85,6 +86,10 @@
                                              HorizontalAlignment="Center"
                                              Content="http://lelouchcrgallery.tk/"
                                              NavigateUri="http://lelouchcrgallery.tk/" />
+                                <HyperlinkButton Margin="0,0,0,0"
+                                             HorizontalAlignment="Center"
+                                             Content="http://yande.re/ (暂未，2.0版本正在制作)"
+                                             NavigateUri="http://yande.re/" />
                                 <TextBlock Text="更多源正在收集ing(((φ(◎ロ◎;)φ)))" Foreground="#FF63ACE6" HorizontalAlignment="Center" />
                                 <TextBlock Margin="5,20,0,0"
                                        HorizontalAlignment="Center"

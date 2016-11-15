@@ -18,9 +18,9 @@
     <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <PackageCertificateKeyFile>onepicture_StoreKey.pfx</PackageCertificateKeyFile>
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
-    <AppxPackageDir>C:\Users\84763\Desktop\</AppxPackageDir>
+    <AppxPackageDir>C:\Users\84763\Desktop\66666\</AppxPackageDir>
     <AppxBundle>Always</AppxBundle>
-    <AppxBundlePlatforms>arm</AppxBundlePlatforms>
+    <AppxBundlePlatforms>x86|arm</AppxBundlePlatforms>
     <PackageCertificateThumbprint>07763FEA86D68FE68FB79EF8449DC0CE91342D37</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
@@ -112,6 +112,7 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Mold\HomeClassMold.cs" />
     <Compile Include="page\bigpicture.xaml.cs">
       <DependentUpon>bigpicture.xaml</DependentUpon>
     </Compile>
@@ -178,6 +179,7 @@
     <Content Include="Assets\Wide310x150Logo.scale.scale-400.png" />
     <None Include="Package.StoreAssociation.xml" />
     <Content Include="image\70742a5645f23e213bc03be44dca3501.jpg" />
+    <Content Include="image\Homeclass\one.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />
     <Content Include="Assets\SplashScreen.scale-200.png" />

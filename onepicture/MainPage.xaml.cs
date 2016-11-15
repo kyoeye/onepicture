@@ -35,9 +35,14 @@ namespace onepicture
             this.InitializeComponent();
             NavigationCacheMode = NavigationCacheMode.Required;
             oneborder.Visibility = Visibility.Collapsed;
-
+            storyboardRectangle.Begin();
+            toptextfc();
         }
-
+        public async void toptextfc()//顶部提示方法
+        {
+            await Task.Delay(6500);
+            xiaotishi.Visibility = Visibility.Collapsed;
+        }
 
         public int setting3 { get; set; }
         public void setting2(int set)
@@ -51,7 +56,7 @@ namespace onepicture
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
-
+     
 
             base.OnNavigatedTo(e);
             //   await backimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
@@ -66,30 +71,42 @@ namespace onepicture
             home_image_pixiv.Stretch = Stretch.Uniform;
             if (NetworkInterface.GetIsNetworkAvailable())
             {
+                try
+                {
                 RootObject1 homeimagepixiv = await goimage1();
         
                 if (homeimagepixiv != null)
                 {
-                    Progressrun.Visibility = Visibility.Visible;
-                    BitmapImage homepixiv = new BitmapImage(new Uri(homeimagepixiv.p_ori));
-                    cc_text.FontSize = 14;
-                    cc_text.Text = "宽:" + homeimagepixiv.p_ori_width + "--高：" + homeimagepixiv.p_ori_hight;
+                   
+                        Progressrun.Visibility = Visibility.Visible;
+                        BitmapImage homepixiv = new BitmapImage(new Uri(homeimagepixiv.p_ori));
+                        cc_text.FontSize = 14;
+                        cc_text.Text = "宽:" + homeimagepixiv.p_ori_width + "--高：" + homeimagepixiv.p_ori_hight;
 
-                    home_image_pixiv.Source = homepixiv;
-                    await home_image_pixiv.Fade(duration: 10, delay: 0, value: 1f).StartAsync();
-                    //await borderbackimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
-                    //   await home_image_pixiv.Blur(duration: 0, delay: 0, value: 10).StartAsync();
-                    await backimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
+                        home_image_pixiv.Source = homepixiv;
+                        await home_image_pixiv.Fade(duration: 10, delay: 0, value: 1f).StartAsync();
+                        //await borderbackimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
+                        //   await home_image_pixiv.Blur(duration: 0, delay: 0, value: 10).StartAsync();
+                        await backimage.Blur(duration: 10, delay: 0, value: 10).StartAsync();
 
 
-                    BitmapSource soure_1 = homepixiv;
-                    prorunActive = soure_1;
-                    Progressrun.Visibility = Visibility.Collapsed ;
-                    if (homepixiv != null)
-                    {
+                        BitmapSource soure_1 = homepixiv;
+                        prorunActive = soure_1;
+                        Progressrun.Visibility = Visibility.Collapsed;
+                   
+               
+                   
                         storyboardRectangle.Begin();
-                    }
+                    
 
+                 }
+
+                }
+                catch
+                {
+                    var msgDialog = new Windows.UI.Popups.MessageDialog("看到这条提示意味着当前ip已被数据源的防火墙拦截。。。开发者会在下一个更新中将api更改为yande.re，当然，你换个网络还是能继续访问该软件的") { Title = "一个坏消息" };
+                    msgDialog.Commands.Add(new Windows.UI.Popups.UICommand("了解"));
+                    await msgDialog.ShowAsync();
                 }
                 if (prorunActive == null)
                 {

@@ -8,9 +8,9 @@
              d:DesignWidth="400"
              mc:Ignorable="d">
 
-    <Grid Width="400"
+    <Grid 
           Height="150"
-          Background="#FF0094D8">
+        >
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
             <RowDefinition Height="*" />
@@ -21,6 +21,7 @@
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
+        <Border Grid.ColumnSpan="4" Grid.RowSpan="2"   Background="#FF0094D8"  />
         <TextBlock Name="mainpage_text"
                    Grid.ColumnSpan="2"
                    VerticalAlignment="Top"
